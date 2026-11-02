@@ -733,7 +733,7 @@ footer b{color:#F1F0EB}
       <div class="done" id="done" hidden>
         <p class="eyebrow" style="color:var(--ok)">Bijna klaar</p>
         <h3>Uw e-mailprogramma opent met de aanmelding</h3>
-        <p style="color:var(--ink-2)">Druk daar op verzenden. Opent er niets? Kopieer dan de tekst hieronder en mail die naar <a id="mailto-addr" href="#"></a>.</p>
+        <p style="color:var(--ink-2)">Vul daar de ontvanger in en druk op verzenden. Opent er niets? Kopieer dan de tekst hieronder.</p>
         <pre id="summary"></pre>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-primary" type="button" id="copy">Tekst kopiëren</button>
@@ -876,11 +876,9 @@ footer b{color:#F1F0EB}
 
 <script>
 (function(){
-  var CONTACT = "storeholdingnl@gmail.com";
+  var CONTACT = "";
   var f = document.getElementById("f"), err = document.getElementById("err"),
       done = document.getElementById("done"), sum = document.getElementById("summary");
-  var addr = document.getElementById("mailto-addr");
-  addr.textContent = CONTACT; addr.href = "mailto:" + CONTACT;
 
   function vals(name){ return Array.prototype.map.call(f.querySelectorAll('input[name="'+name+'"]:checked'), function(i){return i.value}); }
 
