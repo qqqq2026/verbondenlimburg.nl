@@ -726,17 +726,17 @@ footer b{color:#F1F0EB}
         </label>
         <label for="bericht">Wat kunt u bijdragen?<textarea id="bericht" name="bericht" placeholder="Bijvoorbeeld: wij hebben 4 hectare op een bedrijventerrein in Heerlen beschikbaar voor een warmtepilot."></textarea></label>
         <label class="check" for="akkoord"><input type="checkbox" id="akkoord" name="akkoord" required><span>Mijn naam en organisatie mogen als steunpartner in het conceptplan worden genoemd. Gegevens worden alleen voor dit initiatief gebruikt.</span></label>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="website">Website<input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
         <p class="err" id="err" hidden></p>
         <button class="btn btn-primary" type="submit" style="justify-self:start">Aanmelding versturen
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
       </form>
       <div class="done" id="done" hidden>
-        <p class="eyebrow" style="color:var(--ok)">Bijna klaar</p>
-        <h3>Uw e-mailprogramma opent met de aanmelding</h3>
-        <p style="color:var(--ink-2)">Druk daar op verzenden. Opent er niets? Kopieer dan de tekst hieronder en mail die naar <a id="mailto-addr" href="#"></a>.</p>
+        <p class="eyebrow" style="color:var(--ok)">Aanmelding ontvangen</p>
+        <h3 id="done-title">Dank u wel, fijn dat u meedoet</h3>
+        <p style="color:var(--ink-2)">Uw aanmelding is binnen. We nemen contact met u op over de volgende stappen. Dit is wat u ons heeft gestuurd:</p>
         <pre id="summary"></pre>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-primary" type="button" id="copy">Tekst kopiëren</button>
           <button class="btn btn-ghost" type="button" id="again">Nog iemand aanmelden</button>
         </div>
       </div>
@@ -876,13 +876,13 @@ footer b{color:#F1F0EB}
 
 <script>
 (function(){
-  var CONTACT = "storeholdingnl@gmail.com";
+  var ENDPOINT = "https://n8n.srv1483895.hstgr.cloud/webhook/verbondenlimburg-aanmelding";
   var f = document.getElementById("f"), err = document.getElementById("err"),
-      done = document.getElementById("done"), sum = document.getElementById("summary");
-  var addr = document.getElementById("mailto-addr");
-  addr.textContent = CONTACT; addr.href = "mailto:" + CONTACT;
+      done = document.getElementById("done"), sum = document.getElementById("summary"),
+      title = document.getElementById("done-title"), btn = f.querySelector('button[type="submit"]');
 
   function vals(name){ return Array.prototype.map.call(f.querySelectorAll('input[name="'+name+'"]:checked'), function(i){return i.value}); }
+  function showErr(msg){ err.textContent = msg; err.hidden = false; }
 
   f.addEventListener("submit", function(e){
     e.preventDefault();
@@ -892,34 +892,52 @@ footer b{color:#F1F0EB}
     else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) msg = "Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.";
     else if(!vals("doel").length) msg = "Kies ten minste één manier om mee te doen.";
     else if(!f.akkoord.checked) msg = "Vink de toestemming aan, dan kunnen we u als steunpartner noemen.";
-    if(msg){ err.textContent = msg; err.hidden = false; return; }
+    if(msg){ showErr(msg); return; }
     err.hidden = true;
-    var body = [
-      "Aanmelding Verbonden Limburg","",
+
+    var data = {
+      rol: vals("rol")[0] || "",
+      doel: vals("doel"),
+      thema: vals("thema"),
+      naam: naam,
+      org: f.org.value.trim(),
+      mail: mail,
+      tel: f.tel.value.trim(),
+      gemeente: f.gemeente.value,
+      bericht: f.bericht.value.trim(),
+      akkoord: f.akkoord.checked,
+      website: f.website.value
+    };
+    sum.textContent = [
       "Naam: " + naam,
-      "Organisatie: " + (f.org.value.trim() || "-"),
+      "Organisatie: " + (data.org || "-"),
       "E-mail: " + mail,
-      "Telefoon: " + (f.tel.value.trim() || "-"),
-      "Gemeente: " + (f.gemeente.value || "-"),
-      "Rol: " + (vals("rol")[0] || "-"),
-      "Deelname: " + vals("doel").join(", "),
-      "Thema's: " + (vals("thema").join(", ") || "-"),
-      "", "Bijdrage:", f.bericht.value.trim() || "-", "",
-      "Akkoord met vermelding als steunpartner: ja"
+      "Telefoon: " + (data.tel || "-"),
+      "Gemeente: " + (data.gemeente || "-"),
+      "Ik meld me aan als: " + (data.rol || "-"),
+      "Ik wil: " + data.doel.join(", "),
+      "Interesse in: " + (data.thema.join(", ") || "-"),
+      "Bijdrage: " + (data.bericht || "-")
     ].join("\n");
-    sum.textContent = body;
-    var subject = "Aanmelding: " + vals("doel").join(" + ") + " (" + (f.org.value.trim() || naam) + ")";
-    window.location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    f.hidden = true; done.hidden = false;
-    done.scrollIntoView({behavior:"smooth", block:"start"});
+
+    var label = btn.firstChild.nodeValue;
+    btn.disabled = true; btn.firstChild.nodeValue = "Bezig met versturen ";
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    }).then(function(r){
+      if(!r.ok) throw new Error("status " + r.status);
+      title.textContent = "Dank u wel, " + naam.split(/\s+/)[0] + ". Fijn dat u meedoet";
+      f.hidden = true; done.hidden = false;
+      done.scrollIntoView({behavior:"smooth", block:"start"});
+    }).catch(function(){
+      showErr("Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het over een paar minuten opnieuw.");
+    }).then(function(){
+      btn.disabled = false; btn.firstChild.nodeValue = label;
+    });
   });
 
-  document.getElementById("copy").addEventListener("click", function(){
-    var b = this;
-    try{
-      navigator.clipboard.writeText(sum.textContent).then(function(){ b.textContent = "Gekopieerd"; }, function(){ b.textContent = "Selecteer de tekst handmatig"; });
-    }catch(x){ b.textContent = "Selecteer de tekst handmatig"; }
-  });
   document.getElementById("again").addEventListener("click", function(){
     f.reset(); done.hidden = true; f.hidden = false; f.naam.focus();
   });
