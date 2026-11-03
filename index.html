@@ -80,7 +80,7 @@ p{margin:0}
 
 /* hero */
 .hero{position:relative;color:#F4F3EE;background:#0D1F1A}
-.hero-img{position:absolute;inset:0;background:url(assets/img/hero.jpg) center 60%/cover no-repeat}
+.hero-img{position:absolute;inset:0;background:url(assets/img/hero.webp) center 60%/cover no-repeat}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,22,18,.92) 0%,rgba(8,22,18,.72) 45%,rgba(8,22,18,.15) 100%)}
 .hero .wrap{position:relative;padding-block:clamp(56px,9vw,112px) clamp(40px,6vw,72px)}
 .hero h1{font-size:clamp(40px,7vw,92px);font-weight:900;font-stretch:78%;max-width:13ch;text-transform:uppercase;letter-spacing:-.005em}
@@ -266,6 +266,16 @@ footer b{color:#F1F0EB}
 .person .av{width:52px;height:52px;border-radius:50%;background:var(--forest);color:var(--on-forest);display:grid;place-items:center;font:800 18px var(--display)}
 .person a{color:var(--forest);font-weight:700}
 .more summary{font-size:17px}
+.scards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.scard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.scard img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--sunk)}
+.scard .in{padding:14px 16px 18px;display:grid;gap:6px}
+.scard .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.scard .nr{font:500 11px var(--mono);color:var(--ink-2);letter-spacing:.08em;text-transform:uppercase}
+.scard h3{font-size:18px}
+.scard p{color:var(--ink-2);font-size:15px}
+figure.wide{margin:0 0 26px}
+figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:var(--r)}
 </style>
 </head>
 <body id="top">
@@ -323,7 +333,7 @@ footer b{color:#F1F0EB}
       <p class="lede">Binnen vijftig kilometer komen Nederlandse, Belgische en Duitse kennisindustrie en logistiek samen. Dit plan koppelt wateropgave, bereikbaarheid, wetenschap, energie en rekenkracht in één volgorde, zodat warmte, water, data en materialen in de regio rondgaan en de deelprojecten elkaar versterken in plaats van om dezelfde euro te concurreren.</p>
     </div>
     <figure>
-      <img src="assets/img/corridor.jpg" alt="Knooppunt van snelweg, spoor en containerterminal in het Zuid-Limburgse grensgebied" loading="lazy">
+      <img src="assets/img/corridor.webp" alt="Knooppunt van snelweg, spoor en containerterminal in het Zuid-Limburgse grensgebied" loading="lazy">
       <figcaption>Conceptvisualisatie. Locaties en claims indicatief.</figcaption>
     </figure>
   </div>
@@ -338,15 +348,15 @@ footer b{color:#F1F0EB}
     </div>
     <div class="phases">
       <article class="phase">
-        <img src="assets/img/valk.jpg" alt="Doorsnede van ondergrondse waterafvoer onder Valkenburg" loading="lazy">
+        <img src="assets/img/valk.webp" alt="Doorsnede van ondergrondse waterafvoer onder Valkenburg" loading="lazy">
         <div class="in"><p class="tag">Fase 1 · Valkenburg</p><h3>Waterafvoer waar de nood het hoogst is</h3><p>Na juli 2021 weet iedereen wat extreme regen in het Geuldal doet. Een ondergrondse afvoer leidt piekwater onder het dorp door.</p></div>
       </article>
       <article class="phase">
-        <img src="assets/img/tunnel.jpg" alt="Twee verkeerstunnels onder de Brunssummerheide" loading="lazy">
+        <img src="assets/img/tunnel.webp" alt="Twee verkeerstunnels onder de Brunssummerheide" loading="lazy">
         <div class="in"><p class="tag">Fase 2 · Brunssummerheide</p><h3>Binnenring en Buitenring verbonden</h3><p>Twee tunnelbuizen halen doorgaand verkeer uit de wijken, met ruimte voor glasvezel, stroom en water.</p></div>
       </article>
       <article class="phase">
-        <img src="assets/img/et.jpg" alt="Ondergrondse detectoren van de Einstein Telescope bij Vaals" loading="lazy">
+        <img src="assets/img/et.webp" alt="Ondergrondse detectoren van de Einstein Telescope bij Vaals" loading="lazy">
         <div class="in"><p class="tag">Fase 3 · Vaals</p><h3>Klaar voor de Einstein Telescope</h3><p>Als de bouw rond 2036 start, staat er een regio klaar met ondergrondse ervaring en een getrainde ploeg.</p></div>
       </article>
     </div>
@@ -358,24 +368,25 @@ footer b{color:#F1F0EB}
     <div class="head">
       <p class="eyebrow">Levend concept · versie 1.1 · bijgewerkt 26 oktober 2026</p>
       <h2>Veertien deelscopes, één plan dat nog groeit</h2>
-      <p class="lede">Elke scope heeft een status. Alles staat nog op idee, behalve de Einstein Telescope. Wie meedenkt, ziet zijn inbreng terug in de volgende versie.</p>
+      <p class="lede">Alle veertien deelscopes in beeld, elk met een status. Alles staat nog op idee, behalve de Einstein Telescope. Wie meedenkt, ziet zijn inbreng terug in de volgende versie.</p>
     </div>
-    <div class="scopelist">
-      <div class="scoperow"><p class="nr">Scope 01</p><div><h3>Waterafvoer Valkenburg</h3><p>Ondergrondse afvoer in het Geuldal, eerste inzet van de tunnelboormachine</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 02</p><div><h3>Tunnelbuizen Brunssummerheide</h3><p>Verbinding Binnenring en Buitenring, met ruimte voor kabels en leidingen</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 03</p><div><h3>Einstein Telescope als einddoel</h3><p>Regionale kennis en materieel klaar voor de bouw vanaf circa 2036</p></div><span class="status st-onderbouwd">Onderbouwd</span></div>
-      <div class="scoperow"><p class="nr">Scope 04</p><div><h3>Energie, koelwater en circulariteit</h3><p>Energiecentrale Limburg: zeven tot acht modulaire thoriumreactoren, met warmte door naar warmtenet, zoutopslag en Mijnwater</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 05</p><div><h3>Datacenter en AI-capaciteit</h3><p>Groeit mee met de beschikbare stroom, restwarmte als product. Data-analyse voor de telescoop als eerste anker</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 06</p><div><h3>Mijnwater en drinkwater</h3><p>Meetnet, modelstudie en benutting van stijgend mijnwater</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 07</p><div><h3>Drones en palletvervoer over spoor</h3><p>Dronecorridor boven bestaand spoor, pallets per trein naar regionale hubs. Eerste horde: toestemming voor vliegen buiten zicht</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 08</p><div><h3>Limbo Dome als bovenregionale arena</h3><p>Overdekte locatie voor concerten, sport, beurzen en congressen, voor publiek uit drie landen</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 09</p><div><h3>Logistiek knooppunt en Maastricht Aachen Airport</h3><p>Spoor, weg en lucht als één grensoverschrijdend netwerk</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 10</p><div><h3>Civiel-militair medisch centrum Heerlen</h3><p>Bestaande ziekenhuiscapaciteit koppelen aan defensie en de Euregio</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 11</p><div><h3>Chemelot en de Westelijke Mijnstreek</h3><p>Elektrificatie, waterstof en netverzwaring voor de grootste werkgever van de regio</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 12</p><div><h3>Brede welvaart en vakmanschap</h3><p>Opleidingsplaatsen in ondergrondse techniek, mbo-samenwerking en meetbare effecten per wijk</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 13</p><div><h3>Subtropisch zwembad op restwarmte</h3><p>Overdekt bad dat het hele jaar open is, verwarmd met warmte die anders wordt weggekoeld</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 14</p><div><h3>Klimaatoplossingen uit lokale materialen</h3><p>Modulaire producten die regenwater bufferen en stroom opwekken, gemaakt in de regio zelf</p></div><span class="status st-idee">Idee</span></div>
+    <div class="scards">
+      <article class="scard"><img src="assets/img/valk.webp" alt="Doorsnede van een ondergrondse waterafvoer onder Valkenburg. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 01</p><span class="status st-idee">Idee</span></div><h3>Waterafvoer Valkenburg</h3><p>Ondergrondse afvoer in het Geuldal, eerste inzet van de tunnelboormachine</p></div></article>
+      <article class="scard"><img src="assets/img/tunnel.webp" alt="Twee verkeerstunnels onder de Brunssummerheide. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 02</p><span class="status st-idee">Idee</span></div><h3>Tunnelbuizen Brunssummerheide</h3><p>Verbinding Binnenring en Buitenring, met ruimte voor kabels en leidingen</p></div></article>
+      <article class="scard"><img src="assets/img/et.webp" alt="Ondergrondse detectoren van de Einstein Telescope bij Vaals. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 03</p><span class="status st-onderbouwd">Onderbouwd</span></div><h3>Einstein Telescope als einddoel</h3><p>Regionale kennis en materieel klaar voor de bouw vanaf circa 2036</p></div></article>
+      <article class="scard"><img src="assets/img/sigrano.webp" alt="Energie-, data- en innovatiecluster met warmtenet. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 04</p><span class="status st-idee">Idee</span></div><h3>Energie, koelwater en circulariteit</h3><p>Energiecentrale Limburg: zeven tot acht modulaire thoriumreactoren, met warmte door naar warmtenet, zoutopslag en Mijnwater</p></div></article>
+      <article class="scard"><img src="assets/img/ai.webp" alt="AI-campus en datacenter in Zuid-Limburg. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 05</p><span class="status st-idee">Idee</span></div><h3>Datacenter en AI-capaciteit</h3><p>Groeit mee met de beschikbare stroom, restwarmte als product. Data-analyse voor de telescoop als eerste anker</p></div></article>
+      <article class="scard"><img src="assets/img/mijnwater.webp" alt="Doorsnede van de ondergrond met stijgend mijnwater en meetpunten. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 06</p><span class="status st-idee">Idee</span></div><h3>Mijnwater en drinkwater</h3><p>Meetnet, modelstudie en benutting van stijgend mijnwater</p></div></article>
+      <article class="scard"><img src="assets/img/drone.webp" alt="Pakketdrones boven een spoorlijn met een logistieke hub. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 07</p><span class="status st-idee">Idee</span></div><h3>Drones en palletvervoer over spoor</h3><p>Dronecorridor boven bestaand spoor, pallets per trein naar regionale hubs. Eerste horde: toestemming voor vliegen buiten zicht</p></div></article>
+      <article class="scard"><img src="assets/img/dome.webp" alt="Ronde overdekte evenementenarena in het Zuid-Limburgse landschap. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 08</p><span class="status st-idee">Idee</span></div><h3>Limbo Dome als bovenregionale arena</h3><p>Overdekte locatie voor concerten, sport, beurzen en congressen, voor publiek uit drie landen</p></div></article>
+      <article class="scard"><img src="assets/img/logi.webp" alt="Luchthaven met spoor en snelweg als logistiek knooppunt. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 09</p><span class="status st-idee">Idee</span></div><h3>Logistiek knooppunt en Maastricht Aachen Airport</h3><p>Spoor, weg en lucht als één grensoverschrijdend netwerk</p></div></article>
+      <article class="scard"><img src="assets/img/hosp.webp" alt="Ziekenhuislocatie met civiele en militaire medische functie. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 10</p><span class="status st-idee">Idee</span></div><h3>Civiel-militair medisch centrum Heerlen</h3><p>Bestaande ziekenhuiscapaciteit koppelen aan defensie en de Euregio</p></div></article>
+      <article class="scard"><img src="assets/img/chemelot.webp" alt="Chemisch industriepark met elektrolysehal, zonnepanelen en hoogspanningsstation. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 11</p><span class="status st-idee">Idee</span></div><h3>Chemelot en de Westelijke Mijnstreek</h3><p>Elektrificatie, waterstof en netverzwaring voor de grootste werkgever van de regio</p></div></article>
+      <article class="scard"><img src="assets/img/vakmanschap.webp" alt="Leerlingen met een instructeur bij een tunnelring en een boorkop in een opleidingswerkplaats. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 12</p><span class="status st-idee">Idee</span></div><h3>Brede welvaart en vakmanschap</h3><p>Opleidingsplaatsen in ondergrondse techniek, mbo-samenwerking en meetbare effecten per wijk</p></div></article>
+      <article class="scard"><img src="assets/img/pool.webp" alt="Overdekt subtropisch zwembad met glijbanen en beplanting. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 13</p><span class="status st-idee">Idee</span></div><h3>Subtropisch zwembad op restwarmte</h3><p>Overdekt bad dat het hele jaar open is, verwarmd met warmte die anders wordt weggekoeld</p></div></article>
+      <article class="scard"><img src="assets/img/fence.webp" alt="Modulaire schutting die regenwater buffert, met zonnepanelen. Conceptvisualisatie" loading="lazy" width="800" height="450"><div class="in"><div class="top"><p class="nr">Scope 14</p><span class="status st-idee">Idee</span></div><h3>Klimaatoplossingen uit lokale materialen</h3><p>Modulaire producten die regenwater bufferen en stroom opwekken, gemaakt in de regio zelf</p></div></article>
     </div>
+    <p class="ref-note">Alle beelden bij de scopes zijn conceptvisualisaties: zo zou het eruit kunnen zien, niet hoe het al is.</p>
   </div>
 </section>
 
@@ -409,6 +420,10 @@ footer b{color:#F1F0EB}
       <h2>Eigen basislast, zonder te wachten op het net</h2>
       <p class="lede">Enexis meldt in 2026 opnieuw knelpunten in Limburg en houdt klanten op de wachtlijst<a class="src" href="https://www.enexis.nl/nieuws/2026/09/update-netcapaciteit-september" target="_blank" rel="noopener">bron</a>. Heerlen trekt zelf 1,2 mln euro uit tegen netcongestie<a class="src" href="https://regioonline.nl/regio-maastricht/heerlen-ontwikkelkracht/" target="_blank" rel="noopener">bron</a>. Daarom onderzoeken we modulaire thoriumreactoren van Copenhagen Atomics als eigen, regelbare bron. Als sluitstuk, niet als startpunt: eerst besparen, dan duurzaam opwekken, dan uitwisselen en opslaan, en pas daarna de restvraag invullen, zoals Parkstad het met PALET voor 2040 doet<a class="src" href="https://www.parkstad-limburg.nl/palet" target="_blank" rel="noopener">bron</a>.</p>
     </div>
+    <figure class="wide">
+      <img src="assets/img/plant.webp" alt="Rij containerreactoren op een terrein met groene daken en een mijnschacht op de achtergrond. Conceptvisualisatie" loading="lazy" width="800" height="450">
+      <figcaption>Energiecentrale Limburg zoals die eruit zou kunnen zien: modulaire units op één terrein. Conceptvisualisatie.</figcaption>
+    </figure>
     <ul class="facts">
       <li><b>100 MW thermisch per unit</b>Gelijk aan 42 MW elektrisch, in een aangepaste 40-voets container uit de fabriek<a class="src" href="https://copenhagenatomics.com/" target="_blank" rel="noopener">bron</a></li>
       <li><b>Zeven tot acht units</b>Ons advies voor Parkstad tot 2035: volledig geëlektrificeerd plus één tot twee reserve-eenheden. Nog te toetsen aan PALET 3.0</li>
@@ -435,7 +450,7 @@ footer b{color:#F1F0EB}
       </ul>
     </div>
     <figure>
-      <img src="assets/img/mijnwater.jpg" alt="Doorsnede van de ondergrond met stijgend mijnwater, het bovenste grondwaterpakket, meetpunten en een waterzuivering" loading="lazy">
+      <img src="assets/img/mijnwater.webp" alt="Doorsnede van de ondergrond met stijgend mijnwater, het bovenste grondwaterpakket, meetpunten en een waterzuivering" loading="lazy">
       <figcaption>Conceptvisualisatie.</figcaption>
     </figure>
   </div>
