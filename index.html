@@ -245,17 +245,6 @@ details p{margin-top:10px;color:var(--ink-2);max-width:72ch}
 footer{background:var(--forest-deep);color:#B9C7C1;padding-block:44px;font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
 footer b{color:#F1F0EB}
-/* e-mail aanmelding (korte variant) */
-.signup{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:var(--r);padding:clamp(18px,2.6vw,26px);display:grid;gap:12px;color:var(--ink);max-width:560px}
-.signup h3{font-size:22px}
-.signup .sub{color:var(--ink-2);font-size:15px}
-.signup .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
-.signup .fields .btn{grid-column:1/-1;justify-self:start}
-@media (max-width:520px){.signup .fields{grid-template-columns:1fr}}
-.signup label{font-size:14px}
-.signup .check{font-size:14px}
-.signup .ok{color:var(--ok);font-weight:700}
-.hero .signup{margin-top:30px}
 .band{background:var(--gold-soft);border-block:1px solid var(--line);padding-block:clamp(40px,5vw,64px)}
 .band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
 @media (max-width:860px){.band .wrap{grid-template-columns:1fr}}
@@ -265,7 +254,8 @@ footer b{color:#F1F0EB}
 .person{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-top:22px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);max-width:560px}
 .person .av{width:52px;height:52px;border-radius:50%;background:var(--forest);color:var(--on-forest);display:grid;place-items:center;font:800 18px var(--display)}
 .person a{color:var(--forest);font-weight:700}
-.more summary{font-size:17px}
+.info{font-size:15px;color:var(--ink-2);background:var(--gold-soft);border-left:3px solid var(--gold);padding:12px 14px;border-radius:0 var(--r) var(--r) 0}
+.info b{color:var(--ink)}
 .scards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .scard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .scard img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:var(--sunk)}
@@ -292,7 +282,7 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
       <li><a href="#financiering">Financiering</a></li>
       <li><a href="#wie">Wie</a></li>
     </ul>
-    <a class="btn btn-primary" href="#aanmelden">Nieuwste versie</a>
+    <a class="btn btn-primary" href="#doe-mee">Nieuwste versie</a>
   </div>
 </nav>
 
@@ -302,20 +292,11 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
     <p class="eyebrow">Regionale visie · Water · Energie · AI · Logistiek</p>
     <h1>Eén machine. <em>Drie tunnels.</em> Eén regio.</h1>
     <p class="lede">Zuid-Limburg bereidt zich voor op de Einstein Telescope. Ons voorstel: wacht die jaren niet af, maar gebruik ze. Eerst Valkenburg beschermen tegen water, dan Parkstad verbinden onder de Brunssummerheide, en met die ervaring de telescoop bouwen. Daaromheen groeit een open plan voor energie, mijnwater, data en logistiek.</p>
-    <form class="signup" data-signup novalidate>
-      <h3>Ontvang steeds de nieuwste versie</h3>
-      <p class="sub">Elke nieuwe versie van het plan direct in uw mailbox. Gratis, en u kunt zich altijd afmelden.</p>
-      <div class="fields">
-        <label for="sn-naam-hero">Naam<input type="text" id="sn-naam-hero" name="naam" autocomplete="name" required></label>
-        <label for="sn-mail-hero">E-mailadres<input type="email" id="sn-mail-hero" name="mail" autocomplete="email" required></label>
-        <button class="btn btn-primary" type="submit">Stuur mij de nieuwste versie</button>
-      </div>
-      <label class="check" for="sn-ok-hero"><input type="checkbox" id="sn-ok-hero" name="akkoord" required><span>Ik wil de nieuwste versie per e-mail ontvangen. Mijn gegevens worden alleen voor dit initiatief gebruikt.</span></label>
-      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="sn-web-hero">Website<input type="text" id="sn-web-hero" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <p class="err" data-err hidden></p>
-      <p class="ok" data-ok hidden></p>
-    </form>
-
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#doe-mee">Meld u aan en ontvang de nieuwste versie
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+      <a class="btn btn-ghost" href="#scope">Bekijk de scopes</a>
+    </div>
     <div class="deadline">
       <b>LEVEND CONCEPT v1.1</b>
       <span>Bijgewerkt 26 oktober 2026</span>
@@ -396,20 +377,10 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
       <p class="eyebrow">Blijf bij</p>
       <h2 style="margin-top:12px;font-size:clamp(26px,3.4vw,40px)">Het plan verandert met elke versie. Krijg die meteen in uw mail.</h2>
     </div>
-    <form class="signup" data-signup novalidate>
-      <h3>Ontvang steeds de nieuwste versie</h3>
-      <p class="sub">Elke nieuwe versie van het plan direct in uw mailbox. Gratis, en u kunt zich altijd afmelden.</p>
-      <div class="fields">
-        <label for="sn-naam-band">Naam<input type="text" id="sn-naam-band" name="naam" autocomplete="name" required></label>
-        <label for="sn-mail-band">E-mailadres<input type="email" id="sn-mail-band" name="mail" autocomplete="email" required></label>
-        <button class="btn btn-primary" type="submit">Stuur mij de nieuwste versie</button>
-      </div>
-      <label class="check" for="sn-ok-band"><input type="checkbox" id="sn-ok-band" name="akkoord" required><span>Ik wil de nieuwste versie per e-mail ontvangen. Mijn gegevens worden alleen voor dit initiatief gebruikt.</span></label>
-      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="sn-web-band">Website<input type="text" id="sn-web-band" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <p class="err" data-err hidden></p>
-      <p class="ok" data-ok hidden></p>
-    </form>
-
+    <div>
+      <p style="color:var(--ink-2);margin-bottom:16px">Meld u aan via het formulier. U ontvangt daarna automatisch elke nieuwe versie van het plan per e-mail.</p>
+      <a class="btn btn-primary" href="#doe-mee">Naar het aanmeldformulier</a>
+    </div>
   </div>
 </section>
 
@@ -516,27 +487,16 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
   <div class="wrap join">
     <div>
       <p class="eyebrow">Doe mee</p>
-      <h2 style="margin-top:14px">Een aanvraag wint op draagvlak</h2>
-      <p class="lede" style="margin-top:18px">De snelste manier om mee te doen: laat uw e-mailadres achter en ontvang steeds de nieuwste versie van het plan.</p>
-      <div id="aanmelden" style="margin-top:24px"><form class="signup" data-signup novalidate>
-      <h3>Ontvang steeds de nieuwste versie</h3>
-      <p class="sub">Elke nieuwe versie van het plan direct in uw mailbox. Gratis, en u kunt zich altijd afmelden.</p>
-      <div class="fields">
-        <label for="sn-naam-main">Naam<input type="text" id="sn-naam-main" name="naam" autocomplete="name" required></label>
-        <label for="sn-mail-main">E-mailadres<input type="email" id="sn-mail-main" name="mail" autocomplete="email" required></label>
-        <button class="btn btn-primary" type="submit">Stuur mij de nieuwste versie</button>
+      <h2 style="margin-top:14px">Een aanvraag wint op draagvlak. Uw naam telt.</h2>
+      <p class="lede" style="margin-top:18px">Meld u aan als ondernemer, overheid, kennisinstelling, investeerder of inwoner. Iedereen die zich aanmeldt, ontvangt automatisch steeds de nieuwste versie van het plan.</p>
+      <div class="ways">
+        <div class="way"><div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></div><div><b>Steunbetuiging</b><span>Uw organisatie staat achter de visie.</span></div></div>
+        <div class="way"><div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 17c1-3 3-4 5-4s4 1 5 4M9 17c1-3 3-4 5-4s3 1 4 3" fill="none" stroke="currentColor" stroke-width="2"/></svg></div><div><b>Partner of locatie</b><span>Kennis, capaciteit, cofinanciering of een plek voor een eerste proef.</span></div></div>
+        <div class="way"><div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="4" width="16" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 5l7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div><div><b>Altijd de nieuwste versie</b><span>Na uw aanmelding krijgt u elke nieuwe versie automatisch in uw mail.</span></div></div>
       </div>
-      <label class="check" for="sn-ok-main"><input type="checkbox" id="sn-ok-main" name="akkoord" required><span>Ik wil de nieuwste versie per e-mail ontvangen. Mijn gegevens worden alleen voor dit initiatief gebruikt.</span></label>
-      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="sn-web-main">Website<input type="text" id="sn-web-main" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <p class="err" data-err hidden></p>
-      <p class="ok" data-ok hidden></p>
-    </form>
-</div>
     </div>
     <div>
-      <details class="more" id="meer">
-        <summary>Wilt u meer doen? Steun betuigen, partner worden of een locatie aanbieden</summary>
-        <form id="f" novalidate style="margin-top:16px">
+      <form id="f" novalidate>
         <div class="lbl">Ik meld me aan als
           <div class="chips" role="group" aria-label="Rol">
             <label class="chip"><input type="radio" name="rol" id="rol-bedrijf" value="Ondernemer / bedrijf" checked><span>Ondernemer</span></label>
@@ -552,7 +512,6 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
             <label class="chip"><input type="checkbox" name="doel" id="doel-partner" value="Consortiumpartner"><span>Partner worden</span></label>
             <label class="chip"><input type="checkbox" name="doel" id="doel-pilot" value="Pilotlocatie"><span>Locatie aanbieden</span></label>
             <label class="chip"><input type="checkbox" name="doel" id="doel-scope" value="Scope voorstellen of corrigeren"><span>Scope of cijfer aandragen</span></label>
-            <label class="chip"><input type="checkbox" name="doel" id="doel-nieuws" value="Updates" checked><span>Nieuwste versie ontvangen</span></label>
           </div>
         </div>
         <div class="lbl">Interesse in
@@ -583,22 +542,22 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
           </select>
         </label>
         <label for="bericht">Wat kunt u bijdragen?<textarea id="bericht" name="bericht" placeholder="Bijvoorbeeld: wij hebben 4 hectare op een bedrijventerrein in Heerlen beschikbaar voor een warmtepilot."></textarea></label>
-        <label class="check" for="akkoord"><input type="checkbox" id="akkoord" name="akkoord" required><span>Mijn naam en organisatie mogen als steunpartner in het conceptplan worden genoemd. Gegevens worden alleen voor dit initiatief gebruikt.</span></label>
+        <label class="check" for="naamsvermelding"><input type="checkbox" id="naamsvermelding" name="naamsvermelding"><span>Mijn naam en organisatie mogen als steunpartner op de website en in het conceptplan worden genoemd (optioneel).</span></label>
         <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="website">Website<input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <p class="info"><b>Na het versturen houden we u automatisch op de hoogte.</b> U ontvangt elke nieuwe versie van het plan per e-mail. Uw gegevens gebruiken we alleen voor dit initiatief en u kunt zich altijd afmelden.</p>
         <p class="err" id="err" hidden></p>
         <button class="btn btn-primary" type="submit" style="justify-self:start">Aanmelding versturen
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
         </form>
-        <div class="done" id="done" hidden>
+      <div class="done" id="done" hidden>
           <p class="eyebrow" style="color:var(--ok)">Aanmelding ontvangen</p>
           <h3 id="done-title">Dank u wel, fijn dat u meedoet</h3>
-          <p style="color:var(--ink-2)">Uw aanmelding is binnen. We nemen contact met u op over de volgende stappen. Dit is wat u ons heeft gestuurd:</p>
+          <p style="color:var(--ink-2)">Uw aanmelding is binnen. U ontvangt voortaan automatisch de nieuwste versie per e-mail, en we nemen contact met u op over de volgende stappen. Dit is wat u ons heeft gestuurd:</p>
           <pre id="summary"></pre>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn btn-ghost" type="button" id="again">Nog iemand aanmelden</button>
           </div>
         </div>
-      </details>
     </div>
   </div>
 </section>
@@ -644,7 +603,7 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
 <footer>
   <div class="wrap">
     <div><b>Verbonden Limburg</b><br>Wetenschap, water, energie, AI, logistiek en leefkwaliteit in één regionale strategie.</div>
-    <div>Conceptvisualisatie. Locaties en claims indicatief.<br>Levend concept v1.1, bijgewerkt 26 oktober 2026. <a href="https://verbondenlimburg.nl">verbondenlimburg.nl</a> · <a href="#aanmelden">Nieuwste versie ontvangen</a></div>
+    <div>Conceptvisualisatie. Locaties en claims indicatief.<br>Levend concept v1.1, bijgewerkt 26 oktober 2026. <a href="https://verbondenlimburg.nl">verbondenlimburg.nl</a> · <a href="#doe-mee">Nieuwste versie ontvangen</a></div>
   </div>
 </footer>
 
@@ -661,29 +620,6 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
   }
   var FAIL = "Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het over een paar minuten opnieuw.";
 
-  /* korte aanmelding: naam + e-mail, steeds de nieuwste versie */
-  Array.prototype.forEach.call(document.querySelectorAll("form[data-signup]"), function(sf){
-    var err = sf.querySelector("[data-err]"), ok = sf.querySelector("[data-ok]"), b = sf.querySelector('button[type="submit"]');
-    sf.addEventListener("submit", function(e){
-      e.preventDefault();
-      var naam = sf.naam.value.trim(), mail = sf.mail.value.trim(), msg = "";
-      if(!naam) msg = "Vul uw naam in.";
-      else if(!MAILRE.test(mail)) msg = "Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.";
-      else if(!sf.akkoord.checked) msg = "Vink het vakje aan, dan sturen we u de nieuwste versie.";
-      if(msg){ err.textContent = msg; err.hidden = false; return; }
-      err.hidden = true;
-      var label = b.textContent; b.disabled = true; b.textContent = "Bezig met versturen";
-      post({ rol: "", doel: ["Laatste versie ontvangen"], thema: [], naam: naam, org: "", mail: mail, tel: "", gemeente: "", bericht: "", akkoord: true, website: sf.website.value })
-        .then(function(){
-          sf.querySelector(".fields").hidden = true; sf.querySelector(".check").hidden = true;
-          ok.textContent = "Dank u wel, " + naam.split(/\s+/)[0] + ". U ontvangt voortaan steeds de nieuwste versie op " + mail + ".";
-          ok.hidden = false;
-        })
-        .catch(function(){ err.textContent = FAIL; err.hidden = false; })
-        .then(function(){ b.disabled = false; b.textContent = label; });
-    });
-  });
-
   /* uitgebreide aanmelding */
   var f = document.getElementById("f"), err = document.getElementById("err"),
       done = document.getElementById("done"), sum = document.getElementById("summary"),
@@ -698,14 +634,14 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
     var msg = "";
     if(!naam) msg = "Vul uw naam in.";
     else if(!MAILRE.test(mail)) msg = "Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.";
-    else if(!vals("doel").length) msg = "Kies ten minste één manier om mee te doen.";
-    else if(!f.akkoord.checked) msg = "Vink de toestemming aan, dan kunnen we u als steunpartner noemen.";
     if(msg){ showErr(msg); return; }
     err.hidden = true;
 
+    var doel = vals("doel");
+    if(doel.indexOf("Nieuwste versie ontvangen") < 0) doel.push("Nieuwste versie ontvangen");
     var data = {
       rol: vals("rol")[0] || "",
-      doel: vals("doel"),
+      doel: doel,
       thema: vals("thema"),
       naam: naam,
       org: f.org.value.trim(),
@@ -713,7 +649,8 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
       tel: f.tel.value.trim(),
       gemeente: f.gemeente.value,
       bericht: f.bericht.value.trim(),
-      akkoord: f.akkoord.checked,
+      akkoord: true,
+      naamsvermelding: f.naamsvermelding.checked,
       website: f.website.value
     };
     sum.textContent = [
@@ -725,7 +662,9 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
       "Ik meld me aan als: " + (data.rol || "-"),
       "Ik wil: " + data.doel.join(", "),
       "Interesse in: " + (data.thema.join(", ") || "-"),
-      "Bijdrage: " + (data.bericht || "-")
+      "Bijdrage: " + (data.bericht || "-"),
+      "Naam op de website: " + (data.naamsvermelding ? "ja" : "nee"),
+      "Nieuwste versie per e-mail: ja"
     ].join("\n");
 
     var label = btn.firstChild.nodeValue;
@@ -745,8 +684,6 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
     f.reset(); done.hidden = true; f.hidden = false; f.naam.focus();
   });
 
-  /* link naar #meer opent het uitgebreide formulier */
-  if(location.hash === "#doe-mee" || location.hash === "#meer"){ document.getElementById("meer").open = true; }
 })();
 </script>
 
