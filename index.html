@@ -245,6 +245,27 @@ details p{margin-top:10px;color:var(--ink-2);max-width:72ch}
 footer{background:var(--forest-deep);color:#B9C7C1;padding-block:44px;font-size:15px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
 footer b{color:#F1F0EB}
+/* e-mail aanmelding (korte variant) */
+.signup{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:var(--r);padding:clamp(18px,2.6vw,26px);display:grid;gap:12px;color:var(--ink);max-width:560px}
+.signup h3{font-size:22px}
+.signup .sub{color:var(--ink-2);font-size:15px}
+.signup .fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.signup .fields .btn{grid-column:1/-1;justify-self:start}
+@media (max-width:520px){.signup .fields{grid-template-columns:1fr}}
+.signup label{font-size:14px}
+.signup .check{font-size:14px}
+.signup .ok{color:var(--ok);font-weight:700}
+.hero .signup{margin-top:30px}
+.band{background:var(--gold-soft);border-block:1px solid var(--line);padding-block:clamp(40px,5vw,64px)}
+.band .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+@media (max-width:860px){.band .wrap{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:8px;padding:0;list-style:none}
+.facts li{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:16px 18px;font-size:16px;color:#C4D0CB}
+.facts li b{display:block;color:#F1F0EB;font-family:var(--display);font-size:18px;margin-bottom:4px}
+.person{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin-top:22px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);max-width:560px}
+.person .av{width:52px;height:52px;border-radius:50%;background:var(--forest);color:var(--on-forest);display:grid;place-items:center;font:800 18px var(--display)}
+.person a{color:var(--forest);font-weight:700}
+.more summary{font-size:17px}
 </style>
 </head>
 <body id="top">
@@ -255,30 +276,36 @@ footer b{color:#F1F0EB}
       VERBONDEN LIMBURG
     </a>
     <ul>
-      <li><a href="#visie">Visie</a></li>
       <li><a href="#route">De route</a></li>
-      <li><a href="#pijlers">Pijlers</a></li>
+      <li><a href="#scope">Scopes</a></li>
       <li><a href="#energie">Energie</a></li>
-      <li><a href="#reactoren">Reactoren</a></li>
-      <li><a href="#water">Mijnwater</a></li>
       <li><a href="#financiering">Financiering</a></li>
-      <li><a href="#scope">Levende scope</a></li>
+      <li><a href="#wie">Wie</a></li>
     </ul>
-    <a class="btn btn-primary" href="#doe-mee">Doe mee</a>
+    <a class="btn btn-primary" href="#aanmelden">Nieuwste versie</a>
   </div>
 </nav>
 
-<header class="hero" id="top">
+<header class="hero">
   <div class="hero-img" role="img" aria-label="Heuvelland van Zuid-Limburg met spoorlijn en kennisclusters aan de horizon"></div>
   <div class="wrap">
-    <p class="eyebrow">Regionale visie · Wetenschap · Water · Energie · AI · Logistiek</p>
+    <p class="eyebrow">Regionale visie · Water · Energie · AI · Logistiek</p>
     <h1>Eén machine. <em>Drie tunnels.</em> Eén regio.</h1>
-    <p class="lede">Zuid-Limburg bereidt zich voor op de Einstein Telescope. Wij stellen voor die jaren niet af te wachten, maar te benutten: eerst Valkenburg beschermen tegen water, dan Parkstad verbinden onder de Brunssummerheide, en met die kennis de telescoop bouwen. Daaromheen groeit een open concept over energie, mijnwater, data en logistiek, dat met iedere betrokkene wordt aangescherpt.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#doe-mee">Steun het plan
-        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
-      <a class="btn btn-ghost" href="#route">Bekijk de route</a>
-    </div>
+    <p class="lede">Zuid-Limburg bereidt zich voor op de Einstein Telescope. Ons voorstel: wacht die jaren niet af, maar gebruik ze. Eerst Valkenburg beschermen tegen water, dan Parkstad verbinden onder de Brunssummerheide, en met die ervaring de telescoop bouwen. Daaromheen groeit een open plan voor energie, mijnwater, data en logistiek.</p>
+    <form class="signup" data-signup novalidate>
+      <h3>Ontvang steeds de nieuwste versie</h3>
+      <p class="sub">Elke nieuwe versie van het plan direct in uw mailbox. Gratis, en u kunt zich altijd afmelden.</p>
+      <div class="fields">
+        <label for="sn-naam-hero">Naam<input type="text" id="sn-naam-hero" name="naam" autocomplete="name" required></label>
+        <label for="sn-mail-hero">E-mailadres<input type="email" id="sn-mail-hero" name="mail" autocomplete="email" required></label>
+        <button class="btn btn-primary" type="submit">Stuur mij de nieuwste versie</button>
+      </div>
+      <label class="check" for="sn-ok-hero"><input type="checkbox" id="sn-ok-hero" name="akkoord" required><span>Ik wil de nieuwste versie per e-mail ontvangen. Mijn gegevens worden alleen voor dit initiatief gebruikt.</span></label>
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="sn-web-hero">Website<input type="text" id="sn-web-hero" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <p class="err" data-err hidden></p>
+      <p class="ok" data-ok hidden></p>
+    </form>
+
     <div class="deadline">
       <b>LEVEND CONCEPT v1.1</b>
       <span>Bijgewerkt 26 oktober 2026</span>
@@ -291,9 +318,9 @@ footer b{color:#F1F0EB}
 <section id="visie">
   <div class="wrap thesis">
     <div style="display:grid;gap:22px">
-      <p class="eyebrow">De visie</p>
+      <p class="eyebrow">Het idee in het kort</p>
       <p class="quote">De kracht zit niet in de losse projecten, maar in <span>wat ze voor elkaar mogelijk maken.</span></p>
-      <p class="lede">Binnen een straal van vijftig kilometer komen Nederlandse, Belgische en Duitse kennisindustrie en logistiek samen. Wat vaak als periferie wordt gezien, is in werkelijkheid het midden van Noordwest-Europa. Deze visie verbindt wateropgave, bereikbaarheid, wetenschap, energie en rekenkracht tot één regionale strategie met een duidelijke volgorde. Het eindbeeld over tien tot twintig jaar is een regio waar warmte, water, data en materialen in kringloop blijven en waar de deelscopes elkaar voeden in plaats van om dezelfde euro te concurreren. Hoe groter die scopes en hoe steviger ze verbonden zijn, hoe sluitender de kringloop wordt.</p>
+      <p class="lede">Binnen vijftig kilometer komen Nederlandse, Belgische en Duitse kennisindustrie en logistiek samen. Dit plan koppelt wateropgave, bereikbaarheid, wetenschap, energie en rekenkracht in één volgorde, zodat warmte, water, data en materialen in de regio rondgaan en de deelprojecten elkaar versterken in plaats van om dezelfde euro te concurreren.</p>
     </div>
     <figure>
       <img src="assets/img/corridor.jpg" alt="Knooppunt van snelweg, spoor en containerterminal in het Zuid-Limburgse grensgebied" loading="lazy">
@@ -307,304 +334,110 @@ footer b{color:#F1F0EB}
     <div class="head">
       <p class="eyebrow">De route van de tunnelboormachine</p>
       <h2>Eerst het urgente probleem. Dan de verbinding. Dan de wetenschap.</h2>
-      <p class="lede">Een tunnelboormachine kost tientallen miljoenen en staat bij de meeste projecten na één opdracht stil. Door haar achtereenvolgens in te zetten bouwt de regio kennis, personeel en ervaring op die straks nodig zijn voor de Einstein Telescope.</p>
+      <p class="lede">Een tunnelboormachine kost tientallen miljoenen en staat meestal na één klus stil. Door haar drie keer achter elkaar in te zetten, bouwt de regio de kennis en de ploeg op die straks nodig zijn voor de Einstein Telescope.</p>
     </div>
-
-    <div class="route-diagram" role="img" aria-label="Schema: fase 1 Valkenburg waterafvoer, fase 2 Brunssummerheide tunnelbuizen, fase 3 Einstein Telescope bij Vaals vanaf circa 2036">
-      <svg viewBox="0 0 1100 230" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="1100" height="230" fill="none"/>
-        <path d="M40 70 H1060" stroke="#6F8A80" stroke-width="1" stroke-dasharray="3 5"/>
-        <text x="40" y="52" fill="#B9C7C1" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1.5">MAAIVELD</text>
-        <path d="M80 70 C160 150 260 150 340 150 L400 150" fill="none" stroke="#6BB0CF" stroke-width="10" stroke-linecap="round"/>
-        <path d="M420 150 L700 150" fill="none" stroke="#E0B866" stroke-width="10" stroke-linecap="round"/>
-        <path d="M720 150 C800 150 860 190 1040 190" fill="none" stroke="#9BD3B8" stroke-width="10" stroke-linecap="round"/>
-        <g font-family="Archivo, Arial Narrow, sans-serif" font-weight="800" fill="#F1F0EB">
-          <circle cx="240" cy="142" r="16" fill="#0A2A21" stroke="#6BB0CF" stroke-width="3"/><text x="240" y="147" font-size="14" text-anchor="middle">1</text>
-          <circle cx="560" cy="150" r="16" fill="#0A2A21" stroke="#E0B866" stroke-width="3"/><text x="560" y="155" font-size="14" text-anchor="middle">2</text>
-          <circle cx="900" cy="178" r="16" fill="#0A2A21" stroke="#9BD3B8" stroke-width="3"/><text x="900" y="183" font-size="14" text-anchor="middle">3</text>
-        </g>
-        <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#B9C7C1">
-          <text x="240" y="96" text-anchor="middle" fill="#6BB0CF">VALKENBURG</text>
-          <text x="240" y="112" text-anchor="middle">waterafvoer Geuldal</text>
-          <text x="560" y="112" text-anchor="middle" fill="#E0B866">BRUNSSUMMERHEIDE</text>
-          <text x="560" y="128" text-anchor="middle">2 tunnelbuizen</text>
-          <text x="900" y="140" text-anchor="middle" fill="#9BD3B8">VAALS</text>
-          <text x="900" y="156" text-anchor="middle">Einstein Telescope</text>
-          <text x="240" y="218" text-anchor="middle">direct risico</text>
-          <text x="560" y="218" text-anchor="middle">bereikbaarheid Parkstad</text>
-          <text x="900" y="218" text-anchor="middle">bouwstart rond 2036</text>
-        </g>
-      </svg>
-    </div>
-
     <div class="phases">
       <article class="phase">
         <img src="assets/img/valk.jpg" alt="Doorsnede van ondergrondse waterafvoer onder Valkenburg" loading="lazy">
-        <div class="in">
-          <p class="tag">Fase 1 · Valkenburg</p>
-          <h3>Waterafvoer waar de nood het hoogst is</h3>
-          <p>Na juli 2021 weet iedereen wat extreme neerslag in het Geuldal doet. Een ondergrondse afvoer leidt piekwater gecontroleerd onder het dorp door en ontlast beken, riolering en straten.</p>
-        </div>
+        <div class="in"><p class="tag">Fase 1 · Valkenburg</p><h3>Waterafvoer waar de nood het hoogst is</h3><p>Na juli 2021 weet iedereen wat extreme regen in het Geuldal doet. Een ondergrondse afvoer leidt piekwater onder het dorp door.</p></div>
       </article>
       <article class="phase">
         <img src="assets/img/tunnel.jpg" alt="Twee verkeerstunnels onder de Brunssummerheide" loading="lazy">
-        <div class="in">
-          <p class="tag">Fase 2 · Brunssummerheide</p>
-          <h3>Binnenring en Buitenring direct verbonden</h3>
-          <p>Twee tunnelbuizen onder het natuurgebied halen doorgaand verkeer uit de woonwijken. Langs de buizen komt ruimte voor glasvezel, stroom- en waterleidingen.</p>
-        </div>
+        <div class="in"><p class="tag">Fase 2 · Brunssummerheide</p><h3>Binnenring en Buitenring verbonden</h3><p>Twee tunnelbuizen halen doorgaand verkeer uit de wijken, met ruimte voor glasvezel, stroom en water.</p></div>
       </article>
       <article class="phase">
         <img src="assets/img/et.jpg" alt="Ondergrondse detectoren van de Einstein Telescope bij Vaals" loading="lazy">
-        <div class="in">
-          <p class="tag">Fase 3 · Vaals</p>
-          <h3>Een beproefde machine en een ervaren team</h3>
-          <p>Als de bouw van de Einstein Telescope start, staat er een regio klaar met ondergrondse ervaring, eigen engineering en een getrainde ploeg.</p>
-        </div>
+        <div class="in"><p class="tag">Fase 3 · Vaals</p><h3>Klaar voor de Einstein Telescope</h3><p>Als de bouw rond 2036 start, staat er een regio klaar met ondergrondse ervaring en een getrainde ploeg.</p></div>
       </article>
     </div>
   </div>
 </section>
 
-<section id="pijlers">
+<section id="scope">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Wat er boven de grond gebeurt</p>
-      <h2>Negen projecten die elkaars restwarmte, data en bezoekers gebruiken</h2>
+      <p class="eyebrow">Levend concept · versie 1.1 · bijgewerkt 26 oktober 2026</p>
+      <h2>Veertien deelscopes, één plan dat nog groeit</h2>
+      <p class="lede">Elke scope heeft een status. Alles staat nog op idee, behalve de Einstein Telescope. Wie meedenkt, ziet zijn inbreng terug in de volgende versie.</p>
     </div>
-    <div class="pillars">
-      <article class="pillar">
-        <img src="assets/img/sigrano.jpg" alt="Energie-, data- en innovatiecluster, conceptvisualisatie" loading="lazy">
-        <div class="in"><p class="k e">Energie · locatie in onderzoek</p><h3>Energie-, data- en innovatiecluster</h3><p>Ruimte, een netpositie en een bruikbare ondergrond vormen de basis voor een regionale hub. Meerdere plekken in Parkstad en de Westelijke Mijnstreek voldoen op papier aan die eisen, waarbij de oostflank van Brunssum eruit springt sinds de gemeenteraad daar op 10 maart 2026 een gebiedsvisie vaststelde met economie, energie en leisure als richting. Gebouwd volgens het PALET-principe: eerst besparen, dan duurzaam opwekken, dan lokaal uitwisselen en opslaan, en pas daarna de restvraag invullen. Daarmee sluit het cluster aan op de ambitie van Parkstad om in 2040 hernieuwbaar energieneutraal te zijn<a class="src" href="https://www.parkstad-limburg.nl/palet" target="_blank" rel="noopener">bron</a>.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/dc.jpg" alt="Datacenter met zandbatterij en warmtenet" loading="lazy">
-        <div class="in"><p class="k e">Energie · Warmte</p><h3>Datacenter, zandbatterij en warmtenet</h3><p>Restwarmte wordt opgeslagen in lokaal zand en verdeeld naar zwembad en woonwijken, naar het voorbeeld van Mijnwater in Heerlen.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/ai.jpg" alt="AI-campus in Zuid-Limburg" loading="lazy">
-        <div class="in"><p class="k d">AI · Brightlands</p><h3>AI-ontwikkelcentrum van Nederland</h3><p>Rekenkracht, Brightlands, de Einstein Telescope en drie landen in één regio. Data-analyse voor de telescoop is het eerste anker.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/logi.jpg" alt="Maastricht Aachen Airport met spoor en snelweg" loading="lazy">
-        <div class="in"><p class="k d">Logistiek · MAA</p><h3>Spoor, weg en lucht als één knooppunt</h3><p>Maastricht Aachen Airport als schakel voor luchtvracht, met een pakketbuis boven bestaand spoor als nieuwe laag.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/pool.jpg" alt="Overdekt subtropisch zwembad met glijbanen en beplanting" loading="lazy">
-        <div class="in"><p class="k l">Leefkwaliteit · warmtenet</p><h3>Subtropisch zwembad op restwarmte</h3><p>Een volledig overdekt bad dat het hele jaar bruikbaar is, verwarmd met warmte die anders verloren gaat.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/dome.jpg" alt="Limbo Dome, ronde overdekte evenementenarena in het landschap van Zuid-Limburg" loading="lazy">
-        <div class="in"><p class="k l">Leefkwaliteit · Limbo Dome</p><h3>Limbo Dome als bovenregionale arena</h3><p>Een weersonafhankelijke indoor locatie voor concerten, sport, beurzen en congressen, gericht op publiek uit Nederland, België en Duitsland. Daarmee komt er een bovenregionale trekker bij, voor publiek dat nu naar locaties buiten de regio uitwijkt.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/hosp.jpg" alt="Ziekenhuislocatie in Heerlen met civiele en militaire medische functie" loading="lazy">
-        <div class="in"><p class="k d">Zorg · Heerlen</p><h3>Civiel-militair medisch centrum</h3><p>Bestaande ziekenhuiscapaciteit koppelen aan gespecialiseerde militair-medische zorg, dicht bij AFNORTH en de Euregio.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/drone.jpg" alt="Dronecorridor en spoorterminal voor pakket- en palletvervoer in Zuid-Limburg" loading="lazy">
-        <div class="in"><p class="k d">Logistiek · Drones</p><h3>Dronecorridor en palletvervoer over spoor</h3><p>Pakketdrones over een vaste corridor langs het spoor, met palletvervoer per trein naar regionale hubs. De laatste kilometers gaan door de lucht, de zware stromen over het bestaande spoor.</p></div>
-      </article>
-      <article class="pillar">
-        <img src="assets/img/fence.jpg" alt="Modulaire klimaatoplossing uit lokale materialen, met zonnepanelen" loading="lazy">
-        <div class="in"><p class="k w">Water · Wijken</p><h3>Slimme klimaatoplossingen uit lokale materialen</h3><p>Modulaire producten die regenwater bufferen, stroom opwekken en het riool ontlasten, gemaakt van materialen uit de regio zelf. Lokaal produceren houdt de keten kort en de kringloop gesloten.</p></div>
-      </article>
+    <div class="scopelist">
+      <div class="scoperow"><p class="nr">Scope 01</p><div><h3>Waterafvoer Valkenburg</h3><p>Ondergrondse afvoer in het Geuldal, eerste inzet van de tunnelboormachine</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 02</p><div><h3>Tunnelbuizen Brunssummerheide</h3><p>Verbinding Binnenring en Buitenring, met ruimte voor kabels en leidingen</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 03</p><div><h3>Einstein Telescope als einddoel</h3><p>Regionale kennis en materieel klaar voor de bouw vanaf circa 2036</p></div><span class="status st-onderbouwd">Onderbouwd</span></div>
+      <div class="scoperow"><p class="nr">Scope 04</p><div><h3>Energie, koelwater en circulariteit</h3><p>Energiecentrale Limburg: zeven tot acht modulaire thoriumreactoren, met warmte door naar warmtenet, zoutopslag en Mijnwater</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 05</p><div><h3>Datacenter en AI-capaciteit</h3><p>Groeit mee met de beschikbare stroom, restwarmte als product. Data-analyse voor de telescoop als eerste anker</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 06</p><div><h3>Mijnwater en drinkwater</h3><p>Meetnet, modelstudie en benutting van stijgend mijnwater</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 07</p><div><h3>Drones en palletvervoer over spoor</h3><p>Dronecorridor boven bestaand spoor, pallets per trein naar regionale hubs. Eerste horde: toestemming voor vliegen buiten zicht</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 08</p><div><h3>Limbo Dome als bovenregionale arena</h3><p>Overdekte locatie voor concerten, sport, beurzen en congressen, voor publiek uit drie landen</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 09</p><div><h3>Logistiek knooppunt en Maastricht Aachen Airport</h3><p>Spoor, weg en lucht als één grensoverschrijdend netwerk</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 10</p><div><h3>Civiel-militair medisch centrum Heerlen</h3><p>Bestaande ziekenhuiscapaciteit koppelen aan defensie en de Euregio</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 11</p><div><h3>Chemelot en de Westelijke Mijnstreek</h3><p>Elektrificatie, waterstof en netverzwaring voor de grootste werkgever van de regio</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 12</p><div><h3>Brede welvaart en vakmanschap</h3><p>Opleidingsplaatsen in ondergrondse techniek, mbo-samenwerking en meetbare effecten per wijk</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 13</p><div><h3>Subtropisch zwembad op restwarmte</h3><p>Overdekt bad dat het hele jaar open is, verwarmd met warmte die anders wordt weggekoeld</p></div><span class="status st-idee">Idee</span></div>
+      <div class="scoperow"><p class="nr">Scope 14</p><div><h3>Klimaatoplossingen uit lokale materialen</h3><p>Modulaire producten die regenwater bufferen en stroom opwekken, gemaakt in de regio zelf</p></div><span class="status st-idee">Idee</span></div>
     </div>
+  </div>
+</section>
+
+<section class="band" aria-label="Aanmelden voor de nieuwste versie">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Blijf bij</p>
+      <h2 style="margin-top:12px;font-size:clamp(26px,3.4vw,40px)">Het plan verandert met elke versie. Krijg die meteen in uw mail.</h2>
+    </div>
+    <form class="signup" data-signup novalidate>
+      <h3>Ontvang steeds de nieuwste versie</h3>
+      <p class="sub">Elke nieuwe versie van het plan direct in uw mailbox. Gratis, en u kunt zich altijd afmelden.</p>
+      <div class="fields">
+        <label for="sn-naam-band">Naam<input type="text" id="sn-naam-band" name="naam" autocomplete="name" required></label>
+        <label for="sn-mail-band">E-mailadres<input type="email" id="sn-mail-band" name="mail" autocomplete="email" required></label>
+        <button class="btn btn-primary" type="submit">Stuur mij de nieuwste versie</button>
+      </div>
+      <label class="check" for="sn-ok-band"><input type="checkbox" id="sn-ok-band" name="akkoord" required><span>Ik wil de nieuwste versie per e-mail ontvangen. Mijn gegevens worden alleen voor dit initiatief gebruikt.</span></label>
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="sn-web-band">Website<input type="text" id="sn-web-band" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <p class="err" data-err hidden></p>
+      <p class="ok" data-ok hidden></p>
+    </form>
+
   </div>
 </section>
 
 <section id="energie" class="route">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Scope energie · koelwater · circulariteit</p>
+      <p class="eyebrow">Scope energie</p>
       <h2>Eigen basislast, zonder te wachten op het net</h2>
-      <p class="lede">Een datacenter, een warmtenet en een industriecluster vragen stroom die er op het Limburgse net niet zomaar is. Enexis meldt in 2026 opnieuw nieuwe knelpunten in Limburg en houdt klanten op de wachtlijst<a class="src" href="https://www.enexis.nl/nieuws/2026/09/update-netcapaciteit-september" target="_blank" rel="noopener">bron</a>. Heerlen trekt zelf 1,2 mln euro uit om netcongestie aan te pakken<a class="src" href="https://regioonline.nl/regio-maastricht/heerlen-ontwikkelkracht/" target="_blank" rel="noopener">bron</a>. Daarom onderzoeken we modulaire thoriumreactoren van Copenhagen Atomics als eigen, regelbare bron.</p>
+      <p class="lede">Enexis meldt in 2026 opnieuw knelpunten in Limburg en houdt klanten op de wachtlijst<a class="src" href="https://www.enexis.nl/nieuws/2026/09/update-netcapaciteit-september" target="_blank" rel="noopener">bron</a>. Heerlen trekt zelf 1,2 mln euro uit tegen netcongestie<a class="src" href="https://regioonline.nl/regio-maastricht/heerlen-ontwikkelkracht/" target="_blank" rel="noopener">bron</a>. Daarom onderzoeken we modulaire thoriumreactoren van Copenhagen Atomics als eigen, regelbare bron. Als sluitstuk, niet als startpunt: eerst besparen, dan duurzaam opwekken, dan uitwisselen en opslaan, en pas daarna de restvraag invullen, zoals Parkstad het met PALET voor 2040 doet<a class="src" href="https://www.parkstad-limburg.nl/palet" target="_blank" rel="noopener">bron</a>.</p>
     </div>
-
-    <div class="split">
-      <div>
-        <h3 style="font-size:24px">Waarom modulair en thorium</h3>
-        <ul class="bullets">
-          <li><span class="mark">1</span><span><b>Fabrieksbouw in plaats van bouwput.</b> De reactor past in een aangepaste 40 voets container en wordt op een lopende band gemaakt, niet op locatie gelast<a class="src" href="https://www.nextbigfuture.com/2025/01/copenhagen-atomics-progressing-to-mass-production-of-molten-salt-nuclear-reactors.html" target="_blank" rel="noopener">bron</a>.</span></li>
-          <li><span class="mark">2</span><span><b>Schaalbaar met de vraag.</b> Eén unit levert 100 MW thermisch, gelijk aan 42 MW elektrisch<a class="src" href="https://copenhagenatomics.com/" target="_blank" rel="noopener">bron</a>. Units bijplaatsen als de vraag groeit, in plaats van vooraf één groot vermogen bouwen.</span></li>
-          <li><span class="mark">3</span><span><b>Koelwater en ruimte zijn er al.</b> De oude mijngangen onder dit gebied leveren koeling rond 272 meter diepte en warmteopslag rond 730 meter, en lopen onder meerdere kandidaatlocaties door. De warmte die weg moet, is de voeding van het warmtenet.</span></li>
-          <li><span class="mark">4</span><span><b>Circulair aan twee kanten.</b> De thorium komt als bijproduct uit zeldzame-aardewinning<a class="src" href="https://copenhagenatomics.com/news/securing-future-thorium-supply-with-rare-earths-norway/" target="_blank" rel="noopener">bron</a>, en het ontwerp is bedoeld om bestaand kernafval als brandstof te gebruiken. Een unit draait drie tot vijf jaar zonder bij te laden.</span></li>
-          <li><span class="mark">5</span><span><b>Leefkwaliteit voorop.</b> Een compacte footprint, warmte die in de regio blijft en geen extra hoogspanningslandschap.</span></li>
-          <li><span class="mark">6</span><span><b>Koppeling met Chemelot.</b> De grootste industriële afnemer van de regio elektrificeert en zoekt waterstof. Wat hier aan vermogen, warmte en netverzwaring wordt opgebouwd, is precies wat de Westelijke Mijnstreek nodig heeft om die transitie te halen.</span></li>
-        </ul>
-      </div>
-      <figure>
-        <img src="assets/img/plant.jpg" alt="Energiecentrale Limburg: rij containerreactoren op een terrein met groene daken en de mijnschacht op de achtergrond" loading="lazy">
-        <figcaption>Energiecentrale Limburg: modulaire units op één terrein, met de regio op de achtergrond. Conceptvisualisatie.</figcaption>
-      </figure>
-    </div>
-
-    <h3 style="font-size:24px;margin-top:48px">Het PALET-principe als volgorde</h3>
-    <div class="scroll-x" style="margin-top:18px">
-      <table class="calc">
-        <thead><tr><th>Stap</th><th>Wat dat hier betekent</th><th>Waar het in dit plan zit</th></tr></thead>
-        <tbody>
-          <tr><td><b>1. Besparen</b></td><td>De vraag omlaag brengen voordat er iets wordt bijgebouwd</td><td>Warmtepompen, isolatie, restwarmte hergebruiken in plaats van wegkoelen</td></tr>
-          <tr><td><b>2. Duurzaam opwekken</b></td><td>Zon, wind en bodemenergie binnen de regio</td><td>Zon op daken van bedrijventerreinen, Mijnwater als bodemenergiebron</td></tr>
-          <tr><td><b>3. Uitwisselen en opslaan</b></td><td>Wat de een over heeft, gaat naar de ander</td><td>Warmtenet, zoutopslag, zandbatterij, batterijopslag bij het datacenter</td></tr>
-          <tr><td><b>4. Restvraag invullen</b></td><td>Pas daarna regelbaar vermogen bijplaatsen</td><td>Energiecentrale Limburg, gedimensioneerd op wat er dan nog overblijft</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="ref-note" style="color:#9FB2AB">Parkstad wil in 2040 hernieuwbaar energieneutraal zijn<a class="src" href="https://www.parkstad-limburg.nl/palet" target="_blank" rel="noopener">bron</a>. Dit plan volgt die volgorde en rekent de reactoren bewust als sluitstuk, niet als startpunt. Daardoor dalen de aantallen hieronder zodra besparing en opwekking harder gaan dan verwacht.</p>
-
-    <h3 style="font-size:24px;margin-top:48px">Hoeveel reactoren heeft Parkstad nodig tot 2035</h3>
-    <p class="lede" style="margin-top:12px;color:#B9C7C1">Kort antwoord: vijf tot zes als je puur naar energie-inhoud kijkt, twaalf tot dertien als alles als elektriciteit geleverd moet worden. Met elektrificatie via warmtepompen en elektrisch vervoer kom je realistisch op zeven tot acht uit.</p>
-    <div class="scroll-x" style="margin-top:18px">
-      <table class="calc">
-        <thead><tr><th>Scenario</th><th>Nu (4.097 GWh)</th><th>2035 (circa 3.180 GWh)</th><th>Wat het betekent</th></tr></thead>
-        <tbody>
-          <tr><td><b>A. Alles als warmte</b><br><span style="font-size:14px;color:#9FB2AB">theoretisch minimum</span></td><td class="num">6 units</td><td class="num">5 units</td><td>Werkt niet in de praktijk: verkeer en een deel van de industrie kunnen niets met warmte</td></tr>
-          <tr><td><b>B. Alles als stroom</b><br><span style="font-size:14px;color:#9FB2AB">zonder efficiëntiewinst</span></td><td class="num">13 units</td><td class="num">10 units</td><td>Duurste route, want de omzetting naar stroom kost tweederde van de warmte</td></tr>
-          <tr><td><b>C. Volledig geëlektrificeerd</b><br><span style="font-size:14px;color:#9FB2AB">vraag circa 50% lager door warmtepompen en EV</span></td><td class="num">7 units</td><td class="num">6 units</td><td>Het realistische scenario, zeker in combinatie met warmtelevering aan Mijnwater</td></tr>
-        </tbody>
-        <tfoot><tr><td><b>Advies voor de aanvraag</b></td><td class="num" colspan="2">7 tot 8 units</td><td>Scenario C plus één tot twee reserve-eenheden voor onderhoud en storing</td></tr></tfoot>
-      </table>
-    </div>
-    <p class="ref-note" style="color:#9FB2AB">Rekenbasis. Per unit 100 MWth, gelijk aan 42 MWe, bij 90 procent beschikbaarheid circa 790 GWh warmte of circa 330 GWh stroom per jaar<a class="src" href="https://copenhagenatomics.com/" target="_blank" rel="noopener">bron</a>. Vraag Parkstad 2023: 4.097 GWh, gemiddeld 0,47 GW. Voor 2035 is geïnterpoleerd tussen de PALET-doelen van 3.355 GWh in 2030 en 3.000 GWh in 2040<a class="src" href="https://www.parkstad-limburg.nl/palet" target="_blank" rel="noopener">bron</a>. Deze vraagcijfers moeten nog tegen PALET 3.0 worden gelegd voordat ze in de aanvraag gaan.</p>
-
-    <h3 style="font-size:24px;margin-top:48px">Wat je met de warmte kunt doen</h3>
-    <p class="lede" style="margin-top:12px;color:#B9C7C1">Copenhagen Atomics levert energie als dienst: zout van 550 tot 600 graden aan de klantzijde, afgerekend per MWh<a class="src" href="https://copenhagenatomics.com/" target="_blank" rel="noopener">bron</a>. Reken voor planning met circa 560 graden en houd rekening met 20 tot 40 graden verlies na de warmtewisselaar aan onze kant. Het zout dat wij krijgen zit in een tweede circuit en is niet radioactief.</p>
-    <div class="scroll-x" style="margin-top:18px">
-      <table class="calc">
-        <thead><tr><th>Toepassing</th><th>Benodigde temperatuur</th><th>Past het</th></tr></thead>
-        <tbody>
-          <tr><td>Zoutopslag, zoals bij zonnecentrales</td><td class="num">290 tot 565 °C</td><td>Ja, sluit vrijwel exact aan</td></tr>
-          <tr><td>Zandbatterij</td><td class="num">400 tot 600 °C</td><td>Ja, laden tot circa 500 tot 530 °C na de wisselaar</td></tr>
-          <tr><td>Stoomturbine voor stroom</td><td class="num">500 tot 550 °C</td><td>Ja</td></tr>
-          <tr><td>Waterstof via hogetemperatuur-elektrolyse</td><td class="num">700 tot 850 °C</td><td>Deels, stoom voeden en de rest elektrisch bijverwarmen</td></tr>
-          <tr><td>Ontzouting van water</td><td class="num">70 tot 120 °C</td><td>Ruim, juist met restwarmte na de turbine</td></tr>
-          <tr><td>Warmtenet hoge temperatuur</td><td class="num">70 tot 120 °C</td><td>Ja</td></tr>
-          <tr><td>Mijnwater als lage temperatuurnet</td><td class="num">15 tot 30 °C</td><td>Ja, als laatste trap</td></tr>
-          <tr><td>Staal, cement en glas</td><td class="num">900 tot 1.500 °C</td><td>Nee, alleen voorverwarmen</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <ul class="facts">
+      <li><b>100 MW thermisch per unit</b>Gelijk aan 42 MW elektrisch, in een aangepaste 40-voets container uit de fabriek<a class="src" href="https://copenhagenatomics.com/" target="_blank" rel="noopener">bron</a></li>
+      <li><b>Zeven tot acht units</b>Ons advies voor Parkstad tot 2035: volledig geëlektrificeerd plus één tot twee reserve-eenheden. Nog te toetsen aan PALET 3.0</li>
+      <li><b>Circa € 45 mln per unit</b>Plus € 1,8 mln per jaar. Opgave van de leverancier, geen offerte. Turbines, netaansluiting, terrein en vergunningen komen erbij</li>
+      <li><b>Warmte in drie trappen</b>Circa 560 graden naar turbine of opslag, circa 100 graden naar warmtenet of ontzouting, circa 30 graden naar Mijnwater</li>
+    </ul>
     <div class="note">
-      <b>Cascadering levert het meeste op</b>
-      560 graden naar turbine of opslag, circa 100 graden naar ontzouting of het warmtenet, circa 30 graden naar Mijnwater. Zo benut je per unit een veel groter deel van de 100 MW thermisch dan alleen de 42 MW stroom. Ontzouting op hoge temperatuur is verspilling: dat hoort achteraan in de keten. Met zout van 560 graden ligt directe zoutopslag meer voor de hand dan zand, want dat is hetzelfde medium en bewezen techniek. Zand blijft interessant als goedkope winterbuffer die ook met overtollige zonnestroom geladen kan worden.
+      <b>Wat eerst opgelost moet worden</b>
+      Commerciële units staan pas gepland voor begin jaren dertig. Nergens ter wereld is een thorium-zoutsmeltreactor vergund en de ANVS heeft er nog geen kader voor. Reactoren leveren basislast, dus voor de winterpiek is opslag nodig. En 300 tot 400 MW extra vraagt forse netverzwaring bij Enexis en TenneT. De eerste stap is daarom een haalbaarheidsstudie in 2027, geraamd op 250.000 tot 500.000 euro, op twee sporen: Copenhagen Atomics als kostenreferentie en Thorizon als vergunningsroute.
     </div>
-
-    <h3 style="font-size:24px;margin-top:48px">Kosten en kanttekeningen</h3>
-    <div class="scroll-x" style="margin-top:18px">
-      <table class="calc">
-        <thead><tr><th>Post</th><th>Bedrag</th><th>Toelichting</th></tr></thead>
-        <tbody>
-          <tr><td>Per unit, eenmalig</td><td class="num">€ 45 mln</td><td>Te betalen twee jaar voor levering, inclusief bouw en brandstof<a class="src" href="https://copenhagenatomics.com/" target="_blank" rel="noopener">bron</a></td></tr>
-          <tr><td>Per unit, jaarlijks</td><td class="num">€ 1,8 mln</td><td>Minimaal tien jaar, inclusief onderhoud en brandstoflevering</td></tr>
-          <tr><td>Acht units</td><td class="num">€ 360 mln + € 14 mln per jaar</td><td>Over vijftig jaar komt dat volgens de leverancier neer op circa 8 euro per MWh elektrisch</td></tr>
-          <tr><td>Niet inbegrepen</td><td class="num">nader te bepalen</td><td>Turbines, netaansluiting, terrein, gebouwen, vergunningen en bedrijfsvoering. Reken voor het totale project op een veelvoud</td></tr>
-        </tbody>
-      </table>
-      <div class="note" style="max-width:88ch"><b>Over deze bedragen</b>Opgaven van de leverancier staan in dollar, omgerekend tegen 1 euro is 1,1159 dollar, koers 12 oktober 2026. De leverancier geeft zijn prijzen in dollar op, dus bij een andere koers schuift het bedrag mee. Het zijn bovendien opgaven, geen offerte.</div>
-    </div>
-    <div class="note">
-      <b>Vier dingen die eerst opgelost moeten worden</b>
-      <b style="display:inline">Tijdlijn.</b> Commerciële units van 100 MWth staan gepland voor begin jaren dertig. Er zijn twee prototypes gebouwd en een derde wordt in 2026 verwacht. Levering in Nederland voor 2035 is onzeker.<br>
-      <b style="display:inline">Vergunning.</b> Nergens ter wereld is een thorium-zoutsmeltreactor vergund. De ANVS heeft voor dit type nog geen kader. Dat traject duurt op zichzelf al jaren.<br>
-      <b style="display:inline">Pieken.</b> Reactoren leveren basislast, terwijl de wintervraag naar warmte een veelvoud van het gemiddelde is. Zonder opslag heb je meer vermogen nodig. De mijngangen zijn juist geschikt als buffer.<br>
-      <b style="display:inline">Net.</b> Driehonderd tot vierhonderd MW extra op het Parkstad-net vraagt forse verzwaring bij Enexis en TenneT, in een gebied dat nu al met congestie kampt.
-    </div>
-
-    <div class="phases" style="margin-top:36px">
-      <article class="phase"><div class="in"><p class="tag">Scope 1 · 2027</p><h3>Haalbaarheid en offerte</h3><p>Vraagprofiel toetsen aan PALET 3.0, locatiescan over meerdere kandidaatlocaties, koelwater- en warmtebalans, cascadeontwerp, vergunningsroute via de Kernenergiewet en de ANVS, plus een offerte van Copenhagen Atomics met gegarandeerde aanvoer- en retourtemperatuur en deellastgedrag. Geraamd studiebudget 250.000 tot 500.000 euro.</p></div></article>
-      <article class="phase"><div class="in"><p class="tag">Scope 2 · 2028 tot 2030</p><h3>Warmtekoppeling en opslag</h3><p>Het datacenter groeit in stappen mee met de beschikbare stroom. Warmtekoppeling met Mijnwater, zoutopslag voor de hoge temperatuur en een zandbatterij voor de winterpiek worden in deze fase ontworpen.</p></div></article>
-      <article class="phase"><div class="in"><p class="tag">Scope 3 · vanaf 2031</p><h3>Afname of eigen levering</h3><p>Afnemen van een exploitant, een joint venture of zelf exploiteren, opgebouwd naar zeven tot acht units. De eerste testreactor draait naar verwachting in 2028 en commerciële units komen begin jaren dertig, dus deze scope is een optie met een datum, geen belofte.</p></div></article>
-    </div>
-  </div>
-</section>
-
-<section id="reactoren" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Scope energie · leveranciersvergelijking</p>
-      <h2>Copenhagen Atomics naast het Franse en Nederlandse alternatief</h2>
-      <p class="lede">De vraag die in elk gesprek terugkomt is wat zo'n reactor nu echt kost. Het eerlijke antwoord: maar één van de drie partijen publiceert cijfers waar je mee kunt rekenen, en ook dat zijn opgaven van de leverancier en geen offerte. Hieronder staat wat er wel en niet openbaar is.</p>
-    </div>
-    <table class="calc">
-      <tr><th></th><th>Copenhagen Atomics<br><span style="font-weight:400;opacity:.7">Denemarken</span></th><th>Thorizon One<br><span style="font-weight:400;opacity:.7">Nederland en Frankrijk</span></th><th>Naarea XAMR<br><span style="font-weight:400;opacity:.7">Frankrijk</span></th></tr>
-      <tr><td><b>Vermogen per unit</b></td><td>100 MW thermisch, circa 42 MW elektrisch</td><td>250 MW thermisch, 100 MW elektrisch</td><td>Circa 40 MW elektrisch</td></tr>
-      <tr><td><b>Brandstof</b></td><td>Thoriumcyclus met een startlading plutonium uit opgewerkte splijtstof</td><td>Langlevend kernafval gemengd met thorium</td><td>Gebruikte splijtstof en plutonium, geen thoriumcyclus</td></tr>
-      <tr><td><b>CAPEX per unit</b></td><td>Circa 45 mln euro, opgave van de leverancier</td><td>Niet gepubliceerd</td><td>Niet gepubliceerd. Naarea noemt circa 2 mld euro tot 2030 voor ontwikkeling, brandstoffabriek en reactorfabriek samen</td></tr>
-      <tr><td><b>OPEX per unit per jaar</b></td><td>Circa 1,8 mln euro, opgave van de leverancier</td><td>Niet gepubliceerd</td><td>Niet gepubliceerd</td></tr>
-      <tr><td><b>Kosten per MWh</b></td><td>Circa 8 euro over vijftig jaar, onze eigen som op die twee opgaven</td><td>Niet te berekenen zonder prijs</td><td>Niet te berekenen zonder prijs</td></tr>
-      <tr><td><b>Units voor het scenario Parkstad</b></td><td>Zeven tot acht</td><td>Twee tot drie</td><td>Zeven tot acht</td></tr>
-      <tr><td><b>Stand van zaken</b></td><td>Kritisch experiment niet eerder dan 2028, nergens ter wereld een vergunde unit</td><td>42,5 mln euro opgehaald, bouwstart beoogd 2030, pilot midden jaren dertig<a class="src" href="https://world-nuclear-news.org/articles/new-funding-to-advance-thorizon-molten-salt-reactor-development" target="_blank" rel="noopener">bron</a></td><td>Prototype beoogd 2028, ronde van 150 mln euro in voorbereiding<a class="src" href="https://www.datacenterdynamics.com/en/news/french-small-modular-reactor-company-naarea-looks-to-raise-150m-for-nuclear-business/" target="_blank" rel="noopener">bron</a></td></tr>
-      <tr><td><b>Voordeel</b></td><td>Containerformaat en fabrieksbouw, laagste gepubliceerde prijs, warmte op hoog niveau voor de cascade</td><td>Nederlandse partij, al in beoordeling bij de Nederlandse en Franse toezichthouder, samenwerking met EPZ en NRG PALLAS, provincies als investeerder</td><td>Frans staatsprogramma France 2030 erachter, verbrandt bestaand afval</td></tr>
-      <tr><td><b>Nadeel</b></td><td>Geen vergunde referentie, veel units nodig, startlading plutonium ligt politiek gevoelig</td><td>Prijs onbekend, grotere footprint, cartridgewissel elke vijf tot tien jaar</td><td>Minste publieke cijfers, circa 2 mld euro nodig voor de eerste unit, geen thorium</td></tr>
-    </table>
-    <div class="note" style="max-width:88ch"><b>Wat dit voor de businesscase betekent</b>Er bestaat geen Franse thoriumcentrale met een openbare businesscase om naast Copenhagen Atomics te leggen. Wie het dichtst in de buurt komt is Thorizon, en dat is een Nederlandse partij met Frans staatsgeld. Daarom loopt de haalbaarheidsstudie op twee sporen: Copenhagen Atomics als kostenreferentie en Thorizon als vergunningsroute, met bij allebei een geprijsde offerte voordat er over een locatie wordt besloten.</div>
-    <div class="note" style="max-width:88ch"><b>Restwaarde en residual profit</b>Bij elke scope rekenen wij niet alleen met de exploitatie. De restwaarde van de installatie, de kennis die hier wordt opgebouwd en de residual profit na afschrijving horen in dezelfde ROI-som. Turbines, netaansluiting, putten en leidingen houden waarde ook als de reactorkeuze later verandert, en een meetreeks over de ondergrond wordt elk jaar meer waard omdat je hem niet kunt kopen.</div>
   </div>
 </section>
 
 <section id="water">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Scope water · ondergrond</p>
-      <h2>Het mijnwater stijgt en komt bij het grondwater uit</h2>
-      <p class="lede">Onder Parkstad staat een onzichtbaar reservoir. Sinds het sluiten van de mijnen stijgt het mijnwater met ongeveer twee meter per jaar en er resten nog enkele tientallen meters tot het bovenste grondwater<a class="src" href="https://nos.nl/l/2145785" target="_blank" rel="noopener">bron</a>. Staatstoezicht op de Mijnen stelde vast dat het hydraulisch evenwicht nog niet is bereikt en dat sterk gemineraliseerd mijnwater in delen van de voormalige concessie Emma binnen decennia in de bovenliggende watervoerende pakketten kan komen, met hogere chloride- en sulfaatgehaltes als gevolg<a class="src" href="https://zoek.officielebekendmakingen.nl/blg-795996.pdf" target="_blank" rel="noopener">bron</a>.</p>
-    </div>
-    <div class="split">
-      <figure>
-        <img src="assets/img/mijnwater.jpg" alt="Doorsnede van de ondergrond met stijgend mijnwater uit oude mijngangen, het bovenste grondwaterpakket, meetpunten en een waterzuivering" loading="lazy">
-        <figcaption>Stijgend mijnwater, het bovenste grondwaterpakket, meetnet en zuivering in één beeld. Conceptvisualisatie.</figcaption>
-      </figure>
-      <div>
-        <h3 style="font-size:24px">Wat wij hieraan toevoegen</h3>
-        <ul class="bullets">
-          <li><span class="mark">1</span><span><b>Meten voordat het misgaat.</b> Uitbreiding van het peilbuizennet en satellietmetingen van bodembeweging, zoals Staatstoezicht op de Mijnen adviseert, gekoppeld aan een openbaar dashboard voor de regio.</span></li>
-          <li><span class="mark">2</span><span><b>Drinkwater beschermen.</b> Een modelstudie voor het gebied tussen de Benzenradebreuk en de Heerlerheidebreuk, samen met het waterbedrijf, de provincie en het waterschap.</span></li>
-          <li><span class="mark">3</span><span><b>Van risico naar bron.</b> Mijnwater is in Heerlen al een warmtebron. Dezelfde stroom die we moeten beheersen, kan warmte en koeling leveren als we hem oppompen, benutten en zuiveren.</span></li>
-          <li><span class="mark">4</span><span><b>Koppeling met de ondergrondse projecten.</b> Elke boring voor water of tunnel levert meetgegevens over dezelfde ondergrond. Eén meetnet dient drie doelen.</span></li>
-        </ul>
-        <div class="note"><b>Waarom dit in dit plan hoort</b>Een subsidieaanvraag wordt sterker van een probleem dat niemand kan negeren. Wateroverlast in Valkenburg is er zo een. Stijgend mijnwater onder Parkstad is de tweede.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="drones" style="padding-top:0">
   <div class="wrap split">
     <div>
-      <p class="eyebrow">Scope logistiek</p>
-      <h2 style="margin-top:14px;font-size:clamp(26px,3.4vw,40px)">Drones voor pakketten, spoor voor pallets</h2>
-      <p class="lede" style="margin-top:16px">Boven de bestaande spoorcorridor ligt ruimte die niemand gebruikt. Een vaste dronecorridor langs het spoor brengt pakketten tussen hubs, terwijl pallets per trein gaan naar dezelfde knooppunten. Het spoor is er al, de hubs staan er al en de laatste kilometers zijn nu juist het duurste deel van de keten.</p>
+      <p class="eyebrow">Scope mijnwater</p>
+      <h2 style="margin-top:14px;font-size:clamp(26px,3.4vw,40px)">Het mijnwater stijgt richting het grondwater</h2>
+      <p class="lede" style="margin-top:16px">Sinds de mijnen dicht zijn, stijgt het mijnwater onder Parkstad met ongeveer twee meter per jaar. Er resten nog enkele tientallen meters tot het bovenste grondwater<a class="src" href="https://nos.nl/l/2145785" target="_blank" rel="noopener">bron</a>. Staatstoezicht op de Mijnen waarschuwt dat zout mijnwater in delen van de voormalige concessie Emma binnen decennia in de bovenliggende lagen kan komen<a class="src" href="https://zoek.officielebekendmakingen.nl/blg-795996.pdf" target="_blank" rel="noopener">bron</a>.</p>
       <ul class="bullets">
-        <li><span class="mark">1</span><span><b>Vaste corridor.</b> Vliegen boven bestaand spoor betekent vliegen boven een strook die al voor transport is bestemd, met minder hinder voor woonwijken.</span></li>
-        <li><span class="mark">2</span><span><b>Pallets over het spoor.</b> Regionale hubs bij Maastricht Aachen Airport en Parkstad nemen palletstromen over van de weg.</span></li>
-        <li><span class="mark">3</span><span><b>Grensoverschrijdend.</b> Aken, Luik en Maastricht liggen binnen één vlucht van elkaar, wat dit een logisch proefgebied maakt voor Nederlandse, Duitse en Belgische regels.</span></li>
-        <li><span class="mark">4</span><span><b>Realistisch over regelgeving.</b> Drones buiten zicht van de bestuurder vragen toestemming van de luchtvaartautoriteit. Dat is de eerste horde in deze deelscope, niet de techniek.</span></li>
+        <li><span class="mark">1</span><span><b>Meten.</b> Meer peilbuizen en satellietmetingen, met een openbaar dashboard voor de regio.</span></li>
+        <li><span class="mark">2</span><span><b>Drinkwater beschermen.</b> Een modelstudie samen met waterbedrijf, provincie en waterschap.</span></li>
+        <li><span class="mark">3</span><span><b>Van risico naar bron.</b> In Heerlen levert mijnwater al warmte. Dezelfde stroom die we moeten beheersen, kan warmte en koeling leveren.</span></li>
       </ul>
     </div>
     <figure>
-      <img src="assets/img/drone.jpg" alt="Dronecorridor boven een spoorlijn met pakketdrones en een logistieke hub met daklandingsplaatsen" loading="lazy">
-      <figcaption>Dronecorridor boven bestaand spoor met regionale hub. Conceptvisualisatie.</figcaption>
+      <img src="assets/img/mijnwater.jpg" alt="Doorsnede van de ondergrond met stijgend mijnwater, het bovenste grondwaterpakket, meetpunten en een waterzuivering" loading="lazy">
+      <figcaption>Conceptvisualisatie.</figcaption>
     </figure>
-  </div>
-</section>
-
-<section id="locaties" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Op de kaart</p>
-      <h2>Zeven plekken, één samenhangend plan</h2>
-    </div>
-    <div class="places">
-      <div class="place"><p class="loc">Valkenburg</p><p>Ondertunneling voor waterafvoer in het Geuldal</p></div>
-      <div class="place"><p class="loc">Brunssummer&shy;heide</p><p>Twee tunnelbuizen tussen Binnenring en Buitenring</p></div>
-      <div class="place"><p class="loc">Vaals</p><p>Einstein Telescope, wetenschappelijk einddoel</p></div>
-      <div class="place"><p class="loc">Oostflank Brunssum en omgeving</p><p>Energie, data, zandbatterij en subtropisch zwembad</p></div>
-      <div class="place"><p class="loc">Heerlen / Brightlands</p><p>AI-ecosysteem en civiel-militair medisch centrum</p></div>
-      <div class="place"><p class="loc">Maastricht Aachen Airport</p><p>Multimodale logistiek over spoor, weg en lucht</p></div>
-      <div class="place"><p class="loc">Centraal Zuid-Limburg</p><p>Limbo Dome, bovenregionale evenementenlocatie</p></div>
-      <div class="place"><p class="loc">Heel de regio</p><p>Pakketbuis boven het spoor en slimme schuttingen in wijken</p></div>
-    </div>
   </div>
 </section>
 
@@ -612,55 +445,55 @@ footer b{color:#F1F0EB}
   <div class="wrap">
     <div class="head">
       <p class="eyebrow">Niet ongekend</p>
-      <h2>Zo zijn vergelijkbare plannen in Nederland gefinancierd</h2>
-      <p class="lede">Grote regionale projecten krijgen geld als Rijk, provincie, Europa en markt samen instappen. Deze vijf zijn goedgekeurd en laten zien welke loketten openstaan.</p>
+      <h2>Zo zijn vergelijkbare plannen gefinancierd</h2>
+      <p class="lede">Grote regionale projecten krijgen geld als Rijk, provincie, Europa en markt samen instappen.</p>
     </div>
     <div class="ref-scroll">
       <table class="ref-table">
         <thead><tr><th>Project</th><th>Bedrag</th><th>Wie betaalde</th><th>Les voor dit plan</th></tr></thead>
         <tbody>
-          <tr>
-            <td class="nm"><a href="https://www.h2owaternetwerk.nl/h2o-actueel/gezamenlijk-programma-voor-waterveiliger-limburg-van-start" target="_blank" rel="noopener">Waterveiligheid en Ruimte Limburg</a><small>Na de overstroming van 2021</small></td>
-            <td class="amt">€ 1,2 mld</td>
-            <td>Rijk € 300 mln, regio € 300 mln, HWBP € 600 mln, Interreg</td>
-            <td>Directe haak voor fase 1 Valkenburg</td>
-          </tr>
-          <tr>
-            <td class="nm"><a href="https://www.nationaalgroeifonds.nl/overzicht-lopende-projecten/thema-sleuteltechnologieen-en-valorisatie/einstein-telescope" target="_blank" rel="noopener">Einstein Telescope</a><small>Nationaal Groeifonds, 2022</small></td>
-            <td class="amt">€ 912 mln</td>
-            <td>€ 42 mln toegekend, € 870 mln gereserveerd; OCW, EZK, Nikhef, Provincie, LIOF</td>
-            <td>Het anker waar dit plan naartoe werkt</td>
-          </tr>
-          <tr>
-            <td class="nm"><a href="https://www.tno.nl/nl/newsroom/2025/10/nederland-ai-fabriek-financiering/" target="_blank" rel="noopener">AI-fabriek Groningen</a><small>EuroHPC, oktober 2025</small></td>
-            <td class="amt">€ 200 mln</td>
-            <td>EU € 70 mln, Rijk € 70 mln, regio (Nij Begun) € 60 mln</td>
-            <td>Model voor het AI- en datacluster</td>
-          </tr>
-          <tr>
-            <td class="nm"><a href="https://mijnwater.com/nieuws/heerlen-breidt-netwerk-uit-3-2" target="_blank" rel="noopener">Mijnwater Heerlen</a><small>5e generatie warmtenet, 2023</small></td>
-            <td class="amt">€ 120 mln</td>
-            <td>Enexis € 80 mln, Limburgs Energie Fonds € 40 mln</td>
-            <td>Bewijs dat restwarmte in deze regio werkt</td>
-          </tr>
-          <tr>
-            <td class="nm"><a href="https://regioonline.nl/regio-maastricht/heerlen-ontwikkelkracht/" target="_blank" rel="noopener">Ontwikkelimpuls Heerlen</a><small>Besluit college, najaar 2026</small></td>
-            <td class="amt">€ 6,2 mln</td>
-            <td>Gemeente Heerlen: circa € 5 mln voor vergunningverlening, projectbegeleiding en initiatieven, circa € 1,2 mln voor netcongestie, looptijd 2027 tot 2030</td>
-            <td>Geen subsidiepot, wel capaciteit. Hiermee kan een initiatief als dit sneller door de gemeente worden beoordeeld, met een principeverzoek als startpunt</td>
-          </tr>
-          <tr>
-            <td class="nm"><a href="https://www.cob.nl/over-ondergronds-bouwen/voorbeeldprojecten/maastricht-a2-maastricht/" target="_blank" rel="noopener">A2 Maastricht, Koning Willem-Alexandertunnel</a><small>Geopend december 2016</small></td>
-            <td class="amt">€ 220 mln</td>
-            <td>Rijk, Provincie Limburg, Maastricht en Meerssen; leefbaarheidsbaten volgens CPB</td>
-            <td>Tunnel plus gebiedsontwikkeling levert meer op dan hij kost</td>
-          </tr>
+          <tr><td class="nm"><a href="https://www.h2owaternetwerk.nl/h2o-actueel/gezamenlijk-programma-voor-waterveiliger-limburg-van-start" target="_blank" rel="noopener">Waterveiligheid en Ruimte Limburg</a></td><td class="amt">€ 1,2 mld</td><td>Rijk € 300 mln, regio € 300 mln, HWBP € 600 mln, Interreg</td><td>Directe haak voor Valkenburg</td></tr>
+          <tr><td class="nm"><a href="https://www.nationaalgroeifonds.nl/overzicht-lopende-projecten/thema-sleuteltechnologieen-en-valorisatie/einstein-telescope" target="_blank" rel="noopener">Einstein Telescope</a></td><td class="amt">€ 912 mln</td><td>Nationaal Groeifonds: € 42 mln toegekend, € 870 mln gereserveerd</td><td>Het anker van dit plan</td></tr>
+          <tr><td class="nm"><a href="https://www.tno.nl/nl/newsroom/2025/10/nederland-ai-fabriek-financiering/" target="_blank" rel="noopener">AI-fabriek Groningen</a></td><td class="amt">€ 200 mln</td><td>EU € 70 mln, Rijk € 70 mln, regio € 60 mln</td><td>Model voor het AI- en datacluster</td></tr>
+          <tr><td class="nm"><a href="https://mijnwater.com/nieuws/heerlen-breidt-netwerk-uit-3-2" target="_blank" rel="noopener">Mijnwater Heerlen</a></td><td class="amt">€ 120 mln</td><td>Enexis € 80 mln, Limburgs Energie Fonds € 40 mln</td><td>Restwarmte werkt in deze regio</td></tr>
+          <tr><td class="nm"><a href="https://regioonline.nl/regio-maastricht/heerlen-ontwikkelkracht/" target="_blank" rel="noopener">Ontwikkelimpuls Heerlen</a></td><td class="amt">€ 6,2 mln</td><td>Gemeente Heerlen, 2027 tot 2030</td><td>Geen subsidiepot maar capaciteit: bij een compleet principeverzoek binnen acht weken duidelijkheid</td></tr>
+          <tr><td class="nm"><a href="https://www.cob.nl/over-ondergronds-bouwen/voorbeeldprojecten/maastricht-a2-maastricht/" target="_blank" rel="noopener">A2-tunnel Maastricht</a></td><td class="amt">€ 220 mln</td><td>Rijk, provincie, Maastricht en Meerssen</td><td>Tunnel plus gebiedsontwikkeling levert meer op dan hij kost</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="ref-note">Bij de A2 is € 220 mln de door het CPB gemeten leefbaarheidswinst, niet de bouwsom. Bedragen komen uit de gelinkte bronnen, stand oktober 2026. Elk bedrag op deze site heeft een bron. Ziet u een cijfer zonder bron of met een betere bron, laat het weten, dan passen we het aan.</p>
-    <div class="note" style="max-width:80ch"><b>Van compensatie naar investering</b>Over de na-ijlende gevolgen van de mijnbouw loopt al jaren een discussie over schade en erkenning. Dat gesprek levert op zichzelf geen bedrijvigheid op. Dit plan draait het om: wat er aan middelen naar de regio komt, landt in bezit dat blijft renderen, namelijk een meetnet, een warmtenet, ondergrondse infrastructuur en opgeleid personeel. Een regio met een uitvoerbaar plan wordt eerder bediend dan een regio met een claim.</div>
-    <div class="note" style="max-width:80ch"><b>Hoe wij hier indirect aanspraak op maken</b>De Ontwikkelimpuls van Heerlen is bedoeld om goede initiatieven sneller door het gemeentelijke proces te krijgen. Verbonden Limburg dient zich daarom aan als één samenhangend initiatief met een principeverzoek per deelscope, zodat de gemeentelijke capaciteit en de aanpak van netcongestie direct aan dit project ten goede komen. De gemeente wil bij een compleet principeverzoek binnen acht weken duidelijkheid geven<a class="src" href="https://regioonline.nl/regio-maastricht/heerlen-ontwikkelkracht/" target="_blank" rel="noopener">bron</a>.</div>
+    <p class="ref-note">Bij de A2 is € 220 mln de door het CPB gemeten leefbaarheidswinst, niet de bouwsom. Stand oktober 2026. Ziet u een cijfer dat niet klopt, laat het weten.</p>
+  </div>
+</section>
+
+<section id="planning">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Tijdlijn</p>
+      <h2>Vier tot zes jaar vanaf het startsein</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><p class="when">MAAND 0 TOT 3</p><h3>Scopes vastleggen</h3><p>Cijfers met bronnen, eerste steunpartners.</p></div>
+      <div class="step"><p class="when">MAAND 3 TOT 6</p><h3>Gesprekken en offertes</h3><p>Waterschap, gemeenten, Brightlands, Mijnwater, netbeheerder.</p></div>
+      <div class="step"><p class="when">MAAND 6 TOT 12</p><h3>Eerste aanvragen</h3><p>Per deelscope een kleine aanvraag, snel resultaat.</p></div>
+      <div class="step"><p class="when">JAAR 1 TOT 2</p><h3>Haalbaarheid fase 1</h3><p>Valkenburg en energie naar een volwaardige studie.</p></div>
+      <div class="step"><p class="when">JAAR 2 TOT 4</p><h3>Vergunningen en geld</h3><p>Besluiten, financieringsmix, contract tunnelboormachine.</p></div>
+      <div class="step"><p class="when">JAAR 4 TOT 6</p><h3>Realisatie fase 1</h3><p>Waterafvoer gebouwd, Brunssummerheide in voorbereiding.</p></div>
+    </div>
+    <p class="ref-note">De Einstein Telescope (bouwstart rond 2036) en de Energiecentrale Limburg hebben hun eigen klok en vallen buiten dit venster.</p>
+  </div>
+</section>
+
+<section id="wie" style="padding-top:0">
+  <div class="wrap" style="max-width:860px">
+    <div class="head" style="margin-bottom:0">
+      <p class="eyebrow">Wie</p>
+      <h2>De mensen achter het plan</h2>
+      <p class="lede">Een groep Zuid-Limburgse ondernemers met ervaring in energie, infrastructuur en internationaal projectmanagement. Het doel is een gedragen plan dat overheden en fondsen serieus kunnen beoordelen.</p>
+    </div>
+    <div class="person">
+      <div class="av" aria-hidden="true">FW</div>
+      <div><b>Frans Weerts</b><br><span style="color:var(--ink-2)">Een van de initiatiefnemers van Verbonden Limburg.</span> <a href="https://www.linkedin.com/in/frans-weerts-01a29532/" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
   </div>
 </section>
 
@@ -668,18 +501,27 @@ footer b{color:#F1F0EB}
   <div class="wrap join">
     <div>
       <p class="eyebrow">Doe mee</p>
-      <h2 style="margin-top:14px">Een subsidieaanvraag wint op draagvlak. Uw naam telt.</h2>
-      <p class="lede" style="margin-top:18px">Beoordelaars kijken naar wie er achter een plan staat. Elke steunbetuiging, partner en pilotlocatie die vóór 5 oktober binnen is, komt in het conceptplan.</p>
-      <div class="ways">
-        <div class="way"><div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></div><div><b>Steunbetuiging</b><span>Uw organisatie staat achter de visie. Wij sturen een korte intentieverklaring ter ondertekening.</span></div></div>
-        <div class="way"><div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="14" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 17c1-3 3-4 5-4s4 1 5 4M9 17c1-3 3-4 5-4s3 1 4 3" fill="none" stroke="currentColor" stroke-width="2"/></svg></div><div><b>Consortiumpartner</b><span>U levert kennis, capaciteit of cofinanciering en schuift aan bij de aanvraag.</span></div></div>
-        <div class="way"><div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2c3 0 5 2 5 5 0 4-5 10-5 10S5 11 5 7c0-3 2-5 5-5z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="7" r="1.8" fill="currentColor"/></svg></div><div><b>Pilotlocatie</b><span>Grond, dak, wijk of bedrijventerrein beschikbaar voor een eerste proef, bijvoorbeeld de regenwaterschutting.</span></div></div>
-        <div class="way"><div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="4" width="16" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 5l7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="2"/></svg></div><div><b>Op de hoogte blijven</b><span>U ontvangt het conceptplan en de uitnodiging voor de presentatie.</span></div></div>
+      <h2 style="margin-top:14px">Een aanvraag wint op draagvlak</h2>
+      <p class="lede" style="margin-top:18px">De snelste manier om mee te doen: laat uw e-mailadres achter en ontvang steeds de nieuwste versie van het plan.</p>
+      <div id="aanmelden" style="margin-top:24px"><form class="signup" data-signup novalidate>
+      <h3>Ontvang steeds de nieuwste versie</h3>
+      <p class="sub">Elke nieuwe versie van het plan direct in uw mailbox. Gratis, en u kunt zich altijd afmelden.</p>
+      <div class="fields">
+        <label for="sn-naam-main">Naam<input type="text" id="sn-naam-main" name="naam" autocomplete="name" required></label>
+        <label for="sn-mail-main">E-mailadres<input type="email" id="sn-mail-main" name="mail" autocomplete="email" required></label>
+        <button class="btn btn-primary" type="submit">Stuur mij de nieuwste versie</button>
       </div>
+      <label class="check" for="sn-ok-main"><input type="checkbox" id="sn-ok-main" name="akkoord" required><span>Ik wil de nieuwste versie per e-mail ontvangen. Mijn gegevens worden alleen voor dit initiatief gebruikt.</span></label>
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="sn-web-main">Website<input type="text" id="sn-web-main" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <p class="err" data-err hidden></p>
+      <p class="ok" data-ok hidden></p>
+    </form>
+</div>
     </div>
-
     <div>
-      <form id="f" novalidate>
+      <details class="more" id="meer">
+        <summary>Wilt u meer doen? Steun betuigen, partner worden of een locatie aanbieden</summary>
+        <form id="f" novalidate style="margin-top:16px">
         <div class="lbl">Ik meld me aan als
           <div class="chips" role="group" aria-label="Rol">
             <label class="chip"><input type="radio" name="rol" id="rol-bedrijf" value="Ondernemer / bedrijf" checked><span>Ondernemer</span></label>
@@ -695,7 +537,7 @@ footer b{color:#F1F0EB}
             <label class="chip"><input type="checkbox" name="doel" id="doel-partner" value="Consortiumpartner"><span>Partner worden</span></label>
             <label class="chip"><input type="checkbox" name="doel" id="doel-pilot" value="Pilotlocatie"><span>Locatie aanbieden</span></label>
             <label class="chip"><input type="checkbox" name="doel" id="doel-scope" value="Scope voorstellen of corrigeren"><span>Scope of cijfer aandragen</span></label>
-            <label class="chip"><input type="checkbox" name="doel" id="doel-nieuws" value="Updates"><span>Updates ontvangen</span></label>
+            <label class="chip"><input type="checkbox" name="doel" id="doel-nieuws" value="Updates" checked><span>Nieuwste versie ontvangen</span></label>
           </div>
         </div>
         <div class="lbl">Interesse in
@@ -731,110 +573,40 @@ footer b{color:#F1F0EB}
         <p class="err" id="err" hidden></p>
         <button class="btn btn-primary" type="submit" style="justify-self:start">Aanmelding versturen
           <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M10 4l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg></button>
-      </form>
-      <div class="done" id="done" hidden>
-        <p class="eyebrow" style="color:var(--ok)">Aanmelding ontvangen</p>
-        <h3 id="done-title">Dank u wel, fijn dat u meedoet</h3>
-        <p style="color:var(--ink-2)">Uw aanmelding is binnen. We nemen contact met u op over de volgende stappen. Dit is wat u ons heeft gestuurd:</p>
-        <pre id="summary"></pre>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-ghost" type="button" id="again">Nog iemand aanmelden</button>
+        </form>
+        <div class="done" id="done" hidden>
+          <p class="eyebrow" style="color:var(--ok)">Aanmelding ontvangen</p>
+          <h3 id="done-title">Dank u wel, fijn dat u meedoet</h3>
+          <p style="color:var(--ink-2)">Uw aanmelding is binnen. We nemen contact met u op over de volgende stappen. Dit is wat u ons heeft gestuurd:</p>
+          <pre id="summary"></pre>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-ghost" type="button" id="again">Nog iemand aanmelden</button>
+          </div>
         </div>
-      </div>
+      </details>
     </div>
   </div>
 </section>
 
-<section id="planning" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Tijdlijn</p>
-      <h2>Vier tot zes jaar van startpunt tot realisatie</h2>
-      <p class="lede">De tijdlijn hieronder telt vanaf het moment dat het startsein valt, niet vanaf een vaste datum. Zo blijft hij bruikbaar terwijl partners aanhaken en besluitvorming loopt. Zodra het startpunt vastligt, worden deze stappen van echte data voorzien.</p>
-    </div>
-
-    <div class="route-diagram" style="color:var(--ink-2);margin-bottom:8px" role="img" aria-label="Tijdlijn: maand 0 tot 3 scopes vastleggen, maand 3 tot 6 gesprekken en offertes, maand 6 tot 12 eerste onderzoeksaanvragen, jaar 1 tot 2 haalbaarheid fase 1, jaar 2 tot 4 vergunningen en financiering, jaar 4 tot 6 realisatie fase 1 en start fase 2">
-      <svg viewBox="0 0 1100 150" xmlns="http://www.w3.org/2000/svg">
-        <line x1="40" y1="78" x2="1060" y2="78" stroke="var(--line)" stroke-width="2"/>
-        <g font-family="IBM Plex Mono, monospace" font-size="12">
-          <g><circle cx="60" cy="78" r="9" fill="#94702A"/><text x="60" y="52" text-anchor="start" fill="#94702A">START</text><text x="60" y="110" text-anchor="start" fill="currentColor" font-size="11">voorbereiding</text></g>
-          <g><circle cx="260" cy="78" r="7" fill="none" stroke="#94702A" stroke-width="3"/><text x="260" y="52" text-anchor="middle" fill="currentColor">MAAND 6</text></g>
-          <g><circle cx="460" cy="78" r="7" fill="none" stroke="#94702A" stroke-width="3"/><text x="460" y="52" text-anchor="middle" fill="currentColor">JAAR 1</text><text x="460" y="110" text-anchor="middle" fill="currentColor" font-size="11">eerste geld binnen</text></g>
-          <g><circle cx="660" cy="78" r="7" fill="none" stroke="#2F6F8C" stroke-width="3"/><text x="660" y="52" text-anchor="middle" fill="currentColor">JAAR 2</text></g>
-          <g><circle cx="860" cy="78" r="7" fill="none" stroke="#2F6F8C" stroke-width="3"/><text x="860" y="52" text-anchor="middle" fill="currentColor">JAAR 4</text><text x="860" y="128" text-anchor="middle" fill="currentColor" font-size="11">schop in de grond</text></g>
-          <g><circle cx="1040" cy="78" r="9" fill="#1D5A47"/><text x="1040" y="52" text-anchor="end" fill="#1D5A47">JAAR 6</text><text x="1040" y="110" text-anchor="end" fill="currentColor" font-size="11">fase 1 in bedrijf</text></g>
-        </g>
-      </svg>
-    </div>
-
-    <div class="steps" style="margin-top:12px">
-      <div class="step"><p class="when">MAAND 0 TOT 3</p><h3>Scopes vastleggen</h3><p>Deelscopes beschreven, cijfers onderbouwd met bronnen, eerste steunpartners in het conceptplan.</p></div>
-      <div class="step"><p class="when">MAAND 3 TOT 6</p><h3>Gesprekken en offertes</h3><p>Waterschap, gemeenten, Brightlands, Mijnwater, netbeheerder en Copenhagen Atomics. Principeverzoek bij de gemeente.</p></div>
-      <div class="step"><p class="when">MAAND 6 TOT 12</p><h3>Eerste onderzoeksaanvragen</h3><p>Per deelscope een kleine aanvraag in plaats van één mega-aanvraag. Klein beginnen, snel resultaat laten zien.</p></div>
-      <div class="step"><p class="when">JAAR 1 TOT 2</p><h3>Haalbaarheid fase 1</h3><p>Waterafvoer Valkenburg en de energiescope naar een volwaardige studie met kostenraming en tracékeuze.</p></div>
-      <div class="step"><p class="when">JAAR 2 TOT 4</p><h3>Vergunningen en financiering</h3><p>Besluitvorming bij Rijk, provincie en gemeenten, financieringsmix rond, aanbesteding en contractering van de tunnelboormachine.</p></div>
-      <div class="step"><p class="when">JAAR 4 TOT 6</p><h3>Realisatie fase 1</h3><p>Uitvoering van de waterafvoer, voorbereiding van de tunnelbuizen onder de Brunssummerheide en de eerste warmtekoppelingen in bedrijf.</p></div>
-    </div>
-
-    <div class="note" style="max-width:82ch">
-      <b>Wat buiten dit venster valt</b>
-      Twee onderdelen hebben hun eigen klok. De Einstein Telescope kent een bouwstart rond 2036, dus die ligt per definitie achter deze zes jaar. De Energiecentrale Limburg hangt aan commerciële units die begin jaren dertig beschikbaar komen en aan een vergunningstraject dat in Nederland nog geen kader heeft. Binnen vier tot zes jaar zijn daar de haalbaarheid, de offerte, de locatie en de vergunningsroute af, niet de bouw.
-    </div>
-  </div>
-</section>
-
-<section id="scope" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Levend concept · versie 1.1 · bijgewerkt 26 oktober 2026</p>
-      <h2>Dit plan is niet af, en dat is het punt</h2>
-      <p class="lede">Ideeën groeien. Deze pagina toont daarom altijd de actuele scope, met per onderdeel de status. Deelscopes worden toegevoegd of aangepast zodra dat het project verder helpt. Wie meedenkt, ziet zijn inbreng hier terug.</p>
-    </div>
-    <div class="scopelist">
-      <div class="scoperow"><p class="nr">Scope 01</p><div><h3>Waterafvoer Valkenburg</h3><p>Ondergrondse afvoer in het Geuldal, eerste inzet van de tunnelboormachine</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 02</p><div><h3>Tunnelbuizen Brunssummerheide</h3><p>Verbinding Binnenring en Buitenring, met ruimte voor kabels en leidingen</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 03</p><div><h3>Einstein Telescope als einddoel</h3><p>Regionale kennis en materieel klaar voor de bouw vanaf circa 2036</p></div><span class="status st-onderbouwd">Onderbouwd</span></div>
-      <div class="scoperow"><p class="nr">Scope 04</p><div><h3>Energie, koelwater en circulariteit</h3><p>Energiecentrale Limburg: zeven tot acht modulaire thoriumreactoren, cascadering naar warmtenet, zoutopslag en Mijnwater</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 05</p><div><h3>Datacenter en AI-capaciteit</h3><p>Modulair meegroeien met de beschikbare stroom, restwarmte als product</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 06</p><div><h3>Mijnwater en drinkwater</h3><p>Meetnet, modelstudie en benutting van stijgend mijnwater</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 07</p><div><h3>Drones en palletvervoer over spoor</h3><p>Dronecorridor boven bestaand spoor, palletstromen naar regionale hubs</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 08</p><div><h3>Limbo Dome als bovenregionale arena</h3><p>Weersonafhankelijke indoor locatie voor concerten, sport, beurzen en congressen</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 09</p><div><h3>Logistiek knooppunt en Maastricht Aachen Airport</h3><p>Spoor, weg en lucht als één grensoverschrijdend netwerk</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 10</p><div><h3>Civiel-militair medisch centrum Heerlen</h3><p>Bestaande ziekenhuiscapaciteit koppelen aan defensie en de Euregio</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 11</p><div><h3>Chemelot en de Westelijke Mijnstreek</h3><p>Elektrificatie, waterstof en netverzwaring voor de grootste werkgever van de regio</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 12</p><div><h3>Brede welvaart en vakmanschap</h3><p>Opleidingsplaatsen in ondergrondse techniek, mbo-samenwerking en meetbare effecten per wijk</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 13</p><div><h3>Subtropisch zwembad op restwarmte</h3><p>Overdekt bad dat het hele jaar open is, verwarmd met warmte die anders wordt weggekoeld</p></div><span class="status st-idee">Idee</span></div>
-      <div class="scoperow"><p class="nr">Scope 14</p><div><h3>Klimaatoplossingen uit lokale materialen</h3><p>Modulaire producten die regenwater bufferen en stroom opwekken, gemaakt in de regio zelf</p></div><span class="status st-idee">Idee</span></div>
-    </div>
-
-    <div class="split" style="margin-top:48px">
-      <div>
-        <h3 style="font-size:22px">Wijzigingen</h3>
-        <ul class="log">
-          <li><time>26 okt 2026</time><span>Versienummer naar 1.1. De drie presentaties, deze site en de pdf-versies dragen vanaf nu hetzelfde nummer, zodat duidelijk is welke stukken bij elkaar horen.</span></li>
-          <li><time>26 okt 2026</time><span>Scope 08 gesplitst in drie losse initiatieven: 08 Limbo Dome, 13 subtropisch zwembad en 14 klimaatoplossingen uit lokale materialen. Ze kunnen elkaar versterken, maar elk heeft een eigen besluit, exploitant en financiering.</span></li>
-          <li><time>15 okt 2026</time><span>Naam gewijzigd in Verbonden Limburg. Locatie breder gezet: eisen in plaats van één perceel. Vergelijking van Copenhagen Atomics met Thorizon en Naarea toegevoegd, plus restwaarde en residual profit als vaste post in de ROI.</span></li>
-          <li><time>7 okt 2026</time><span>Scope 11 Chemelot en Westelijke Mijnstreek en scope 12 Brede welvaart en vakmanschap toegevoegd, plus een alinea die de compensatiediscussie omkeert naar investering.</span></li>
-          <li><time>5 okt 2026</time><span>Tijdlijn omgezet naar vier tot zes jaar vanaf startpunt, zonder vaste datums.</span></li>
-          <li><time>5 okt 2026</time><span>PALET-principe toegevoegd als volgorde voor het energie-, data- en innovatiecluster.</span></li>
-          <li><time>5 okt 2026</time><span>Energiecentrale Limburg uitgewerkt: scenario-berekening tot 2035, temperatuurcascade, kosten per unit en de vier openstaande knelpunten.</span></li>
-          <li><time>5 okt 2026</time><span>Scopes energie, mijnwater en drones toegevoegd. Alle bedragen voorzien van een bronlink.</span></li>
-          <li><time>21 sep 2026</time><span>Eerste versie online met de route van de tunnelboormachine en zes pijlers.</span></li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="font-size:22px">Meedenken of iets rechtzetten</h3>
-        <p style="color:var(--ink-2);margin-top:10px">Een deelscope die ontbreekt, een cijfer dat niet klopt, een bezwaar dat eerst op tafel moet: stuur het in. Inbreng wordt opgenomen in de volgende versie, met vermelding van de inbrenger als die dat wil.</p>
-        <p style="margin-top:18px"><a class="btn btn-primary" href="#doe-mee">Scope voorstellen of reageren</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="bronnen" style="padding-top:0">
+<section id="vragen" style="padding-top:0">
   <div class="wrap" style="max-width:860px">
-    <div class="head"><p class="eyebrow">Verantwoording</p><h2>Alle cijfers op deze pagina</h2></div>
-    <ul class="srclist">
+    <div class="head"><p class="eyebrow">Vragen</p><h2>Kort antwoord</h2></div>
+    <details><summary>Is dit al besloten beleid?</summary><p>Nee. Dit is een conceptvisie. Locaties, beelden en claims zijn indicatief. Daarom zoeken we nu partners die het plan scherper en haalbaarder maken.</p></details>
+    <details><summary>Wat kost meedoen?</summary><p>Een steunbetuiging kost niets. Consortiumpartners spreken per aanvraag af wat zij inbrengen, in uren, kennis of cofinanciering.</p></details>
+    <details><summary>Kernenergie in Parkstad, is dat realistisch?</summary><p>Nog niet. De techniek van Copenhagen Atomics is pre-commercieel: de eerste kettingreactie staat niet voor 2028 gepland. Wat nu wel kan, is de haalbaarheid onderzoeken, een offerte opvragen en de vergunningsroute in kaart brengen.</p></details>
+    <details><summary>Wat gebeurt er met mijn gegevens?</summary><p>We gebruiken ze alleen voor dit initiatief: om u de nieuwste versie te sturen en contact met u op te nemen. U kunt dat op elk moment intrekken.</p></details>
+    <details><summary>Wat is er veranderd?</summary>
+      <ul class="log">
+        <li><time>3 nov 2026</time><span>Site ingekort tot de kern. Aanmelden voor de nieuwste versie staat nu bovenaan.</span></li>
+        <li><time>26 okt 2026</time><span>Versienummer naar 1.1. Presentaties, site en pdf's dragen hetzelfde nummer. Scope 08 gesplitst in 08 Limbo Dome, 13 subtropisch zwembad en 14 klimaatoplossingen uit lokale materialen.</span></li>
+        <li><time>15 okt 2026</time><span>Naam gewijzigd in Verbonden Limburg. Vergelijking met Thorizon en Naarea toegevoegd, plus restwaarde als vaste post in de ROI.</span></li>
+        <li><time>7 okt 2026</time><span>Scope 11 Chemelot en Westelijke Mijnstreek en scope 12 Brede welvaart en vakmanschap toegevoegd.</span></li>
+        <li><time>5 okt 2026</time><span>Tijdlijn naar vier tot zes jaar vanaf startpunt. PALET-principe, Energiecentrale Limburg en de scopes energie, mijnwater en drones toegevoegd.</span></li>
+        <li><time>21 sep 2026</time><span>Eerste versie online.</span></li>
+      </ul>
+    </details>
+    <details id="bronnen"><summary>Alle bronnen</summary>
+    <ul class="srclist" style="margin-top:14px">
       <li><span>01</span><a href="https://www.h2owaternetwerk.nl/h2o-actueel/gezamenlijk-programma-voor-waterveiliger-limburg-van-start" target="_blank" rel="noopener">Programma Waterveiligheid en Ruimte Limburg, 1,2 miljard euro, verdeling Rijk, regio en HWBP</a></li>
       <li><span>02</span><a href="https://www.nationaalgroeifonds.nl/overzicht-lopende-projecten/thema-sleuteltechnologieen-en-valorisatie/einstein-telescope" target="_blank" rel="noopener">Nationaal Groeifonds over de Einstein Telescope, 42 miljoen toegekend en 870 miljoen gereserveerd</a></li>
       <li><span>03</span><a href="https://www.tno.nl/nl/newsroom/2025/10/nederland-ai-fabriek-financiering/" target="_blank" rel="noopener">TNO over de AI-fabriek, 200 miljoen uit Europa, Rijk en regio</a></li>
@@ -844,26 +616,12 @@ footer b{color:#F1F0EB}
       <li><span>07</span><a href="https://www.enexis.nl/nieuws/2026/09/update-netcapaciteit-september" target="_blank" rel="noopener">Enexis, update netcapaciteit september 2026</a></li>
       <li><span>08</span><a href="https://zoek.officielebekendmakingen.nl/blg-795996.pdf" target="_blank" rel="noopener">Staatstoezicht op de Mijnen over na-ijlende gevolgen van de steenkolenwinning</a></li>
       <li><span>09</span><a href="https://nos.nl/l/2145785" target="_blank" rel="noopener">NOS over stijgend mijnwater in Limburg, circa twee meter per jaar</a></li>
-      <li><span>10</span><a href="https://en.wikipedia.org/wiki/Copenhagen_Atomics" target="_blank" rel="noopener">Copenhagen Atomics Waste Burner, 50 MWth en circa 20 MWe, tijdlijn</a></li>
-      <li><span>11</span><a href="https://copenhagenatomics.com/" target="_blank" rel="noopener">Copenhagen Atomics over prijs, 100 MWth gelijk aan 42 MWe, zouttemperatuur en tijdlijn</a></li>
-      <li><span>12</span><a href="https://www.parkstad-limburg.nl/palet" target="_blank" rel="noopener">Parkstad Limburg Energietransitie (PALET), doel energieneutraal in 2040</a></li>
-      <li><span>13</span><a href="https://www.nextbigfuture.com/2025/01/copenhagen-atomics-progressing-to-mass-production-of-molten-salt-nuclear-reactors.html" target="_blank" rel="noopener">Copenhagen Atomics over containerformaat, 100 MWth per unit en het doel van circa 18 euro per MWh</a></li>
-      <li><span>14</span><a href="https://smrintel.com/smr-cost-per-kwh/" target="_blank" rel="noopener">Marktoverzicht kosten kleine modulaire reactoren, circa 2.700 tot 7.200 euro per kW en de opslag van 30 tot 50 procent op het eerste exemplaar</a></li>
-      <li><span>15</span><a href="https://www.parkstad-limburg.nl/over-ons/samenwerkende-gemeenten" target="_blank" rel="noopener">Parkstad Limburg, zeven gemeenten en 257.000 inwoners</a></li>
+      <li><span>10</span><a href="https://copenhagenatomics.com/" target="_blank" rel="noopener">Copenhagen Atomics over prijs, 100 MWth gelijk aan 42 MWe, zouttemperatuur en tijdlijn</a></li>
+      <li><span>11</span><a href="https://www.nextbigfuture.com/2025/01/copenhagen-atomics-progressing-to-mass-production-of-molten-salt-nuclear-reactors.html" target="_blank" rel="noopener">Copenhagen Atomics over containerformaat en fabrieksbouw</a></li>
+      <li><span>12</span><a href="https://world-nuclear-news.org/articles/new-funding-to-advance-thorizon-molten-salt-reactor-development" target="_blank" rel="noopener">World Nuclear News over de financiering van Thorizon</a></li>
+      <li><span>13</span><a href="https://www.parkstad-limburg.nl/palet" target="_blank" rel="noopener">Parkstad Limburg Energietransitie (PALET), doel energieneutraal in 2040</a></li>
     </ul>
-  </div>
-</section>
-
-<section id="vragen" style="padding-top:0">
-  <div class="wrap" style="max-width:860px">
-    <div class="head"><p class="eyebrow">Vragen</p><h2>Wat u waarschijnlijk wilt weten</h2></div>
-    <details><summary>Wie zit achter dit initiatief?</summary><p>Een groep Zuid-Limburgse ondernemers met ervaring in energie, infrastructuur en internationaal projectmanagement. Het doel is een gedragen plan dat overheden en fondsen serieus kunnen beoordelen.</p></details>
-    <details><summary>Is dit al besloten beleid?</summary><p>Nee. Dit is een conceptvisie. Locaties, beelden en claims zijn indicatief. Juist daarom zoeken we nu partners die het plan scherper en haalbaarder maken.</p></details>
-    <details><summary>Wat kost meedoen?</summary><p>Een steunbetuiging kost niets. Consortiumpartners spreken per aanvraag af wat zij inbrengen, in uren, kennis of cofinanciering.</p></details>
-    <details><summary>Waarom begint het plan in Valkenburg?</summary><p>Omdat het risico daar nu al bestaat. Een project dat een acuut probleem oplost, is het sterkste begin van een aanvraag en bouwt direct ervaring op voor de volgende fases.</p></details>
-    <details><summary>Kernenergie in Parkstad, is dat realistisch?</summary><p>Nog niet. De techniek van Copenhagen Atomics is pre-commercieel: de eerste kettingreactie staat niet voor 2028 gepland en commerciële inzet rond 2030 tot 2031. Wat nu wel kan, is de haalbaarheid onderzoeken, een offerte opvragen en de vergunningsroute in kaart brengen. Zonder dat onderzoek blijft het een mening in plaats van een plan.</p></details>
-    <details><summary>Waarom staan er cijfers op deze site die nog niet vaststaan?</summary><p>Omdat een open concept beter wordt van tegenspraak. Elk bedrag heeft een bronlink en elke aanname staat erbij. Klopt iets niet, dan passen we het aan en komt het in het wijzigingenlogboek te staan.</p></details>
-    <details><summary>Wat gebeurt er met mijn gegevens?</summary><p>We gebruiken ze alleen om contact met u op te nemen over dit initiatief en, als u daarvoor tekent, om u als steunpartner te noemen. U kunt dat op elk moment intrekken.</p></details>
+    </details>
   </div>
 </section>
 </main>
@@ -871,13 +629,47 @@ footer b{color:#F1F0EB}
 <footer>
   <div class="wrap">
     <div><b>Verbonden Limburg</b><br>Wetenschap, water, energie, AI, logistiek en leefkwaliteit in één regionale strategie.</div>
-    <div>Conceptvisualisatie. Locaties en claims indicatief.<br>Levend concept v1.1, bijgewerkt 26 oktober 2026. <a href="https://verbondenlimburg.nl">verbondenlimburg.nl</a>. <a href="#bronnen">Bronnen</a> · <a href="#doe-mee">Meld u aan</a></div>
+    <div>Conceptvisualisatie. Locaties en claims indicatief.<br>Levend concept v1.1, bijgewerkt 26 oktober 2026. <a href="https://verbondenlimburg.nl">verbondenlimburg.nl</a> · <a href="#aanmelden">Nieuwste versie ontvangen</a></div>
   </div>
 </footer>
 
 <script>
 (function(){
   var ENDPOINT = "https://n8n.srv1483895.hstgr.cloud/webhook/verbondenlimburg-aanmelding";
+  var MAILRE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function post(data){
+    return fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    }).then(function(r){ if(!r.ok) throw new Error("status " + r.status); return r; });
+  }
+  var FAIL = "Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het over een paar minuten opnieuw.";
+
+  /* korte aanmelding: naam + e-mail, steeds de nieuwste versie */
+  Array.prototype.forEach.call(document.querySelectorAll("form[data-signup]"), function(sf){
+    var err = sf.querySelector("[data-err]"), ok = sf.querySelector("[data-ok]"), b = sf.querySelector('button[type="submit"]');
+    sf.addEventListener("submit", function(e){
+      e.preventDefault();
+      var naam = sf.naam.value.trim(), mail = sf.mail.value.trim(), msg = "";
+      if(!naam) msg = "Vul uw naam in.";
+      else if(!MAILRE.test(mail)) msg = "Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.";
+      else if(!sf.akkoord.checked) msg = "Vink het vakje aan, dan sturen we u de nieuwste versie.";
+      if(msg){ err.textContent = msg; err.hidden = false; return; }
+      err.hidden = true;
+      var label = b.textContent; b.disabled = true; b.textContent = "Bezig met versturen";
+      post({ rol: "", doel: ["Laatste versie ontvangen"], thema: [], naam: naam, org: "", mail: mail, tel: "", gemeente: "", bericht: "", akkoord: true, website: sf.website.value })
+        .then(function(){
+          sf.querySelector(".fields").hidden = true; sf.querySelector(".check").hidden = true;
+          ok.textContent = "Dank u wel, " + naam.split(/\s+/)[0] + ". U ontvangt voortaan steeds de nieuwste versie op " + mail + ".";
+          ok.hidden = false;
+        })
+        .catch(function(){ err.textContent = FAIL; err.hidden = false; })
+        .then(function(){ b.disabled = false; b.textContent = label; });
+    });
+  });
+
+  /* uitgebreide aanmelding */
   var f = document.getElementById("f"), err = document.getElementById("err"),
       done = document.getElementById("done"), sum = document.getElementById("summary"),
       title = document.getElementById("done-title"), btn = f.querySelector('button[type="submit"]');
@@ -890,7 +682,7 @@ footer b{color:#F1F0EB}
     var naam = f.naam.value.trim(), mail = f.mail.value.trim();
     var msg = "";
     if(!naam) msg = "Vul uw naam in.";
-    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) msg = "Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.";
+    else if(!MAILRE.test(mail)) msg = "Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.";
     else if(!vals("doel").length) msg = "Kies ten minste één manier om mee te doen.";
     else if(!f.akkoord.checked) msg = "Vink de toestemming aan, dan kunnen we u als steunpartner noemen.";
     if(msg){ showErr(msg); return; }
@@ -923,17 +715,12 @@ footer b{color:#F1F0EB}
 
     var label = btn.firstChild.nodeValue;
     btn.disabled = true; btn.firstChild.nodeValue = "Bezig met versturen ";
-    fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    }).then(function(r){
-      if(!r.ok) throw new Error("status " + r.status);
+    post(data).then(function(){
       title.textContent = "Dank u wel, " + naam.split(/\s+/)[0] + ". Fijn dat u meedoet";
       f.hidden = true; done.hidden = false;
       done.scrollIntoView({behavior:"smooth", block:"start"});
     }).catch(function(){
-      showErr("Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het over een paar minuten opnieuw.");
+      showErr(FAIL);
     }).then(function(){
       btn.disabled = false; btn.firstChild.nodeValue = label;
     });
@@ -942,6 +729,9 @@ footer b{color:#F1F0EB}
   document.getElementById("again").addEventListener("click", function(){
     f.reset(); done.hidden = true; f.hidden = false; f.naam.focus();
   });
+
+  /* link naar #meer opent het uitgebreide formulier */
+  if(location.hash === "#doe-mee" || location.hash === "#meer"){ document.getElementById("meer").open = true; }
 })();
 </script>
 
