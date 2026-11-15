@@ -174,6 +174,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--forest);
 .chip input:focus-visible + span{outline:3px solid var(--gold);outline-offset:2px}
 .check{display:grid;grid-template-columns:20px 1fr;gap:10px;font-weight:400;font-size:15px;color:var(--ink-2);align-items:start}
 .check input{margin-top:3px;accent-color:var(--forest)}
+.field-msg{display:block;color:var(--warn);font-size:14px;font-weight:600;margin-top:4px}
+[aria-invalid="true"]{border-color:var(--warn)!important}
+.btn.is-busy{opacity:.75;cursor:progress}
 .err{color:var(--warn);font-size:14px;font-weight:600}
 [hidden]{display:none!important}
 .done{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--ok);border-radius:var(--r);padding:clamp(20px,3vw,34px);display:grid;gap:14px}
@@ -528,11 +531,11 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
           </div>
         </div>
         <div class="row">
-          <label for="naam">Naam<input type="text" id="naam" name="naam" autocomplete="name" required></label>
+          <label for="naam">Naam<input type="text" id="naam" name="naam" autocomplete="name" required maxlength="120"></label>
           <label for="org">Organisatie<input type="text" id="org" name="org" autocomplete="organization"></label>
         </div>
         <div class="row">
-          <label for="mail">E-mail<input type="email" id="mail" name="mail" autocomplete="email" required></label>
+          <label for="mail">E-mail<input type="email" id="mail" name="mail" autocomplete="email" inputmode="email" required maxlength="160"></label>
           <label for="tel">Telefoon<input type="tel" id="tel" name="tel" autocomplete="tel"></label>
         </div>
         <label for="gemeente">Gemeente
@@ -607,85 +610,7 @@ figure.wide img{display:block;width:100%;max-height:420px;object-fit:cover;borde
   </div>
 </footer>
 
-<script>
-(function(){
-  var ENDPOINT = "https://n8n.srv1483895.hstgr.cloud/webhook/verbondenlimburg-aanmelding";
-  var MAILRE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  function post(data){
-    return fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    }).then(function(r){ if(!r.ok) throw new Error("status " + r.status); return r; });
-  }
-  var FAIL = "Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het over een paar minuten opnieuw.";
-
-  /* uitgebreide aanmelding */
-  var f = document.getElementById("f"), err = document.getElementById("err"),
-      done = document.getElementById("done"), sum = document.getElementById("summary"),
-      title = document.getElementById("done-title"), btn = f.querySelector('button[type="submit"]');
-
-  function vals(name){ return Array.prototype.map.call(f.querySelectorAll('input[name="'+name+'"]:checked'), function(i){return i.value}); }
-  function showErr(msg){ err.textContent = msg; err.hidden = false; }
-
-  f.addEventListener("submit", function(e){
-    e.preventDefault();
-    var naam = f.naam.value.trim(), mail = f.mail.value.trim();
-    var msg = "";
-    if(!naam) msg = "Vul uw naam in.";
-    else if(!MAILRE.test(mail)) msg = "Vul een geldig e-mailadres in, bijvoorbeeld naam@bedrijf.nl.";
-    if(msg){ showErr(msg); return; }
-    err.hidden = true;
-
-    var doel = vals("doel");
-    if(doel.indexOf("Nieuwste versie ontvangen") < 0) doel.push("Nieuwste versie ontvangen");
-    var data = {
-      rol: vals("rol")[0] || "",
-      doel: doel,
-      thema: vals("thema"),
-      naam: naam,
-      org: f.org.value.trim(),
-      mail: mail,
-      tel: f.tel.value.trim(),
-      gemeente: f.gemeente.value,
-      bericht: f.bericht.value.trim(),
-      akkoord: true,
-      naamsvermelding: f.naamsvermelding.checked,
-      website: f.website.value
-    };
-    sum.textContent = [
-      "Naam: " + naam,
-      "Organisatie: " + (data.org || "-"),
-      "E-mail: " + mail,
-      "Telefoon: " + (data.tel || "-"),
-      "Gemeente: " + (data.gemeente || "-"),
-      "Ik meld me aan als: " + (data.rol || "-"),
-      "Ik wil: " + data.doel.join(", "),
-      "Interesse in: " + (data.thema.join(", ") || "-"),
-      "Bijdrage: " + (data.bericht || "-"),
-      "Naam op de website: " + (data.naamsvermelding ? "ja" : "nee"),
-      "Nieuwste versie per e-mail: ja"
-    ].join("\n");
-
-    var label = btn.firstChild.nodeValue;
-    btn.disabled = true; btn.firstChild.nodeValue = "Bezig met versturen ";
-    post(data).then(function(){
-      title.textContent = "Dank u wel, " + naam.split(/\s+/)[0] + ". Fijn dat u meedoet";
-      f.hidden = true; done.hidden = false;
-      done.scrollIntoView({behavior:"smooth", block:"start"});
-    }).catch(function(){
-      showErr(FAIL);
-    }).then(function(){
-      btn.disabled = false; btn.firstChild.nodeValue = label;
-    });
-  });
-
-  document.getElementById("again").addEventListener("click", function(){
-    f.reset(); done.hidden = true; f.hidden = false; f.naam.focus();
-  });
-
-})();
-</script>
+<script src="assets/js/aanmelden.js" defer></script>
 
 </body>
 </html>
