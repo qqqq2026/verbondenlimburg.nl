@@ -13,7 +13,7 @@
   var TIMEOUT_MS = 20000;
   var MAILRE = /^[^\s@<>,;"']+@[^\s@<>,;"']+\.[^\s@<>,;"']{2,}$/; // zelfde regel als n8n
   var ALTIJD_DOEL = "Nieuwste versie ontvangen";
-  var FAIL = "Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het over een paar minuten opnieuw. Lukt het dan nog niet, mail ons op aanmeldingen@verbondenlimburg.nl.";
+  var FAIL = "Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het over een paar minuten opnieuw.";
   var SERVER_MSG = {
     "naam ontbreekt": "Vul uw naam in.",
     "ongeldig e-mailadres": "Dit e-mailadres lijkt niet te kloppen. Kijkt u het nog even na?",
